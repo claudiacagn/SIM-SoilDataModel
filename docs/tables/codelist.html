@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>codelist - o3_model.public</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
+        <!-- Bootstrap 3.3.5 -->
+        <link rel="stylesheet" href="../bower/admin-lte/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="../bower/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="../bower/ionicons/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="../bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="../bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+        <!-- Code Mirror -->
+        <link rel="stylesheet" href="../bower/codemirror/codemirror.css">
+        <!-- Fonts -->
+        <link href='../fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+        <link href='../fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../bower/admin-lte/dist/css/AdminLTE.min.css">
+        <!-- Salvattore -->
+        <link rel="stylesheet" href="../bower/salvattore/salvattore.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+           folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../bower/admin-lte/dist/css/skins/_all-skins.min.css">
+        <!-- SchemaSpy -->
+        <link rel="stylesheet" href="../schemaSpy.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="../bower/html5shiv/html5shiv.min.js"></script>
+        <script src="../bower/respond/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+    <body class="hold-transition skin-blue layout-top-nav">
+        <div class="wrapper">
+            <header class="main-header">
+                <nav class="navbar navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a href="../index.html" class="navbar-brand"><b>o3_model</b></a><span class="navbar-brand" style="padding-left: 0">.public</span>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="../index.html">Tables <span class="sr-only">(current)</span></a></li>
+                                <li><a href="../columns.html" title="All of the columns in the schema">Columns</a></li>
+                                <li><a href="../constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+                                <li><a href="../relationships.html" title="Diagram of table relationships">Relationships</a></li>
+                                <li><a href="../orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>
+                                <li><a href="../anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+                                <li><a href="../routines.html" title="Procedures and functions">Routines</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                        <!-- Navbar Right Menu -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </header>
+            <!-- Main content -->
+            <!-- Full Width Column -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>codelist</h1><p><span id="recordNumber">-1</span> rows</p><br />
+                </section>
+                <!-- Main content -->
+                <section class="content">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                            <h3 id="Columns" class="box-title">Columns</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table
+                                    id="standard_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
+                                <thead align='left'>
+                                <tr>
+                                    <th>Column</th>
+                                    <th>Type</th>
+                                    <th>Size</th>
+                                    <th title='Are nulls allowed?'>Nulls</th>
+                                    <th title='Is column automatically updated?'>Auto</th>
+                                    <th title='Default value'>Default</th>
+                                    <th title='Columns in tables that reference this column'>Children</th>
+                                    <th title='Columns in tables that are referenced by this column'>Parents</th>
+                                    <th title='Comments' class="toggle"><span>Comments</span></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="id">id</span></td>
+                                    <td>int4</td>
+                                    <td>10</td>
+                                    <td title=''></td>
+                                    <td title='Automatically updated by the database'>√</td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="codelist.parent references codelist.id via codelist_parent_fkey"><a href='codelist.html'>codelist</a><span class='relatedKey'>.parent</span></td>
+                                                <td class="constraint detail">codelist_parent_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="codelist_i18n.id_codelist references codelist.id via codelist_i18n_idcodelist_fkey"><a href='codelist_i18n.html'>codelist_i18n</a><span class='relatedKey'>.id_codelist</span></td>
+                                                <td class="constraint detail">codelist_i18n_idcodelist_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="disturbance_soil_site.type_phenomenon references codelist.id via disturbance_soil_site_type_phenomenon_fkey"><a href='disturbance_soil_site.html'>disturbance_soil_site</a><span class='relatedKey'>.type_phenomenon</span></td>
+                                                <td class="constraint detail">disturbance_soil_site_type_phenomenon_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="existing_land_use_value.code references codelist.id via existing_land_use_value_code_fkey"><a href='existing_land_use_value.html'>existing_land_use_value</a><span class='relatedKey'>.code</span></td>
+                                                <td class="constraint detail">existing_land_use_value_code_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="experiment_soil_site.experiment_type references codelist.id via experiment_soil_site_experiment_type_fkey"><a href='experiment_soil_site.html'>experiment_soil_site</a><span class='relatedKey'>.experiment_type</span></td>
+                                                <td class="constraint detail">experiment_soil_site_experiment_type_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="fao_horizon_notation_type.fao_horizon_master_1 references codelist.id via faohorizonmaster_1_fkey"><a href='fao_horizon_notation_type.html'>fao_horizon_notation_type</a><span class='relatedKey'>.fao_horizon_master_1</span></td>
+                                                <td class="constraint detail">faohorizonmaster_1_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="fao_horizon_notation_type.fao_horizon_master_2 references codelist.id via faohorizonmaster_2_fkey"><a href='fao_horizon_notation_type.html'>fao_horizon_notation_type</a><span class='relatedKey'>.fao_horizon_master_2</span></td>
+                                                <td class="constraint detail">faohorizonmaster_2_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="fao_horizon_notation_type.fao_horizon_subordinate_1 references codelist.id via faohorizonsubordinate_1_fkey"><a href='fao_horizon_notation_type.html'>fao_horizon_notation_type</a><span class='relatedKey'>.fao_horizon_subordinate_1</span></td>
+                                                <td class="constraint detail">faohorizonsubordinate_1_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="fao_horizon_notation_type.fao_horizon_subordinate_2 references codelist.id via faohorizonsubordinate_2_fkey"><a href='fao_horizon_notation_type.html'>fao_horizon_notation_type</a><span class='relatedKey'>.fao_horizon_subordinate_2</span></td>
+                                                <td class="constraint detail">faohorizonsubordinate_2_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="fao_horizon_notation_type.fao_horizon_subordinate_3 references codelist.id via faohorizonsubordinate_3_fkey"><a href='fao_horizon_notation_type.html'>fao_horizon_notation_type</a><span class='relatedKey'>.fao_horizon_subordinate_3</span></td>
+                                                <td class="constraint detail">faohorizonsubordinate_3_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="fao_horizon_notation_type.fao_prime references codelist.id via faoprime_fkey"><a href='fao_horizon_notation_type.html'>fao_horizon_notation_type</a><span class='relatedKey'>.fao_prime</span></td>
+                                                <td class="constraint detail">faoprime_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="land_cover_observation.land_cover_class_value references codelist.id via land_cover_observation_landcoverclassvalue_fkey"><a href='land_cover_observation.html'>land_cover_observation</a><span class='relatedKey'>.land_cover_class_value</span></td>
+                                                <td class="constraint detail">land_cover_observation_landcoverclassvalue_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="land_cover_observation.vegetation_type references codelist.id via land_cover_observation_vegetation_type_fkey"><a href='land_cover_observation.html'>land_cover_observation</a><span class='relatedKey'>.vegetation_type</span></td>
+                                                <td class="constraint detail">land_cover_observation_vegetation_type_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="land_cover_observation_mosaic.land_cover_class_value references codelist.id via land_cover_observation_mosaic_landcoverclassvalue_fkey"><a href='land_cover_observation_mosaic.html'>land_cover_observation_mosaic</a><span class='relatedKey'>.land_cover_class_value</span></td>
+                                                <td class="constraint detail">land_cover_observation_mosaic_landcoverclassvalue_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="land_cover_observation_mosaic.vegetation_type references codelist.id via land_cover_observation_mosaic_vegetation_type_fkey"><a href='land_cover_observation_mosaic.html'>land_cover_observation_mosaic</a><span class='relatedKey'>.vegetation_type</span></td>
+                                                <td class="constraint detail">land_cover_observation_mosaic_vegetation_type_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="land_management.grazing_regime references codelist.id via land_management_grazingregime_fkey"><a href='land_management.html'>land_management</a><span class='relatedKey'>.grazing_regime</span></td>
+                                                <td class="constraint detail">land_management_grazingregime_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="land_management.irrigation_water_source references codelist.id via land_management_irrigationwatersource_fkey"><a href='land_management.html'>land_management</a><span class='relatedKey'>.irrigation_water_source</span></td>
+                                                <td class="constraint detail">land_management_irrigationwatersource_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="land_management.mechanical_disturbance_regime references codelist.id via land_management_mechanicaldisturbanceregime_fkey"><a href='land_management.html'>land_management</a><span class='relatedKey'>.mechanical_disturbance_regime</span></td>
+                                                <td class="constraint detail">land_management_mechanicaldisturbanceregime_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="land_management.nutrient_input references codelist.id via land_management_nutrientinput_fkey"><a href='land_management.html'>land_management</a><span class='relatedKey'>.nutrient_input</span></td>
+                                                <td class="constraint detail">land_management_nutrientinput_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="land_management.organic_matter_balance references codelist.id via land_management_organicmatterbalance_fkey"><a href='land_management.html'>land_management</a><span class='relatedKey'>.organic_matter_balance</span></td>
+                                                <td class="constraint detail">land_management_organicmatterbalance_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="land_management.phytosanitary_control_regime references codelist.id via land_management_phytosanitarycontrolregime_fkey"><a href='land_management.html'>land_management</a><span class='relatedKey'>.phytosanitary_control_regime</span></td>
+                                                <td class="constraint detail">land_management_phytosanitarycontrolregime_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="land_management.soil_cover_continuity references codelist.id via land_management_soilcovercontinuity_fkey"><a href='land_management.html'>land_management</a><span class='relatedKey'>.soil_cover_continuity</span></td>
+                                                <td class="constraint detail">land_management_soilcovercontinuity_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="land_management.water_regime references codelist.id via land_management_waterregime_fkey"><a href='land_management.html'>land_management</a><span class='relatedKey'>.water_regime</span></td>
+                                                <td class="constraint detail">land_management_waterregime_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="land_management.water_regime_alteration references codelist.id via land_management_waterregimealteration_fkey"><a href='land_management.html'>land_management</a><span class='relatedKey'>.water_regime_alteration</span></td>
+                                                <td class="constraint detail">land_management_waterregimealteration_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="observable_property.base_phenomenon references codelist.id via observable_property_basephenomenon_fkey"><a href='observable_property.html'>observable_property</a><span class='relatedKey'>.base_phenomenon</span></td>
+                                                <td class="constraint detail">observable_property_basephenomenon_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="observable_property.phenomenon_type references codelist.id via observable_property_phenomenontype_fkey"><a href='observable_property.html'>observable_property</a><span class='relatedKey'>.phenomenon_type</span></td>
+                                                <td class="constraint detail">observable_property_phenomenontype_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="observation.result_codelist references codelist.id via observation_resultcodelist_fkey"><a href='observation.html'>observation</a><span class='relatedKey'>.result_codelist</span></td>
+                                                <td class="constraint detail">observation_resultcodelist_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="observation.threshold_operator references codelist.id via observation_threshold_operator_fkey"><a href='observation.html'>observation</a><span class='relatedKey'>.threshold_operator</span></td>
+                                                <td class="constraint detail">observation_threshold_operator_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="other_horizon_notation_type.diagnostic_horizon references codelist.id via other_horizon_notation_type_diagnostichorizon_fkey"><a href='other_horizon_notation_type.html'>other_horizon_notation_type</a><span class='relatedKey'>.diagnostic_horizon</span></td>
+                                                <td class="constraint detail">other_horizon_notation_type_diagnostichorizon_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="other_horizon_notation_type.horizon_notation references codelist.id via other_horizon_notation_type_horizonnotation_fkey"><a href='other_horizon_notation_type.html'>other_horizon_notation_type</a><span class='relatedKey'>.horizon_notation</span></td>
+                                                <td class="constraint detail">other_horizon_notation_type_horizonnotation_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="pedogenesis.layer_genesis_environment references codelist.id via pedogenesis_layergenesisenvironment_fkey"><a href='pedogenesis.html'>pedogenesis</a><span class='relatedKey'>.layer_genesis_environment</span></td>
+                                                <td class="constraint detail">pedogenesis_layergenesisenvironment_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="pedogenesis.layer_genesis_process references codelist.id via pedogenesis_layergenesisprocess_fkey"><a href='pedogenesis.html'>pedogenesis</a><span class='relatedKey'>.layer_genesis_process</span></td>
+                                                <td class="constraint detail">pedogenesis_layergenesisprocess_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="pedogenesis.layer_genesis_process_state references codelist.id via pedogenesis_layergenesisprocessstate_fkey"><a href='pedogenesis.html'>pedogenesis</a><span class='relatedKey'>.layer_genesis_process_state</span></td>
+                                                <td class="constraint detail">pedogenesis_layergenesisprocessstate_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="pedogenesis.layer_rock_type references codelist.id via pedogenesis_layerrocktype_fkey"><a href='pedogenesis.html'>pedogenesis</a><span class='relatedKey'>.layer_rock_type</span></td>
+                                                <td class="constraint detail">pedogenesis_layerrocktype_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="pedogenesis.pedogenesis_layer_type references codelist.id via pedogenesis_layertype_fkey"><a href='pedogenesis.html'>pedogenesis</a><span class='relatedKey'>.pedogenesis_layer_type</span></td>
+                                                <td class="constraint detail">pedogenesis_layertype_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="preparation_process.id_storage references codelist.id via preparation_process_storage_id_fkey"><a href='preparation_process.html'>preparation_process</a><span class='relatedKey'>.id_storage</span></td>
+                                                <td class="constraint detail">preparation_process_storage_id_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="preparation_process.id_transport references codelist.id via preparation_process_transport_id_fkey"><a href='preparation_process.html'>preparation_process</a><span class='relatedKey'>.id_transport</span></td>
+                                                <td class="constraint detail">preparation_process_transport_id_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="process_parameter.name references codelist.id via process_parameter_name_fkey"><a href='process_parameter.html'>process_parameter</a><span class='relatedKey'>.name</span></td>
+                                                <td class="constraint detail">process_parameter_name_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="profile_element.layer_type references codelist.id via profile_element_layertype_fkey"><a href='profile_element.html'>profile_element</a><span class='relatedKey'>.layer_type</span></td>
+                                                <td class="constraint detail">profile_element_layertype_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="profile_element.profile_element_type references codelist.id via profile_element_elementtype_fkey"><a href='profile_element.html'>profile_element</a><span class='relatedKey'>.profile_element_type</span></td>
+                                                <td class="constraint detail">profile_element_elementtype_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="soil_investigation_purpose.purpose references codelist.id via soil_investigation_purpose_soilinvestigationpurpose_fkey"><a href='soil_investigation_purpose.html'>soil_investigation_purpose</a><span class='relatedKey'>.purpose</span></td>
+                                                <td class="constraint detail">soil_investigation_purpose_soilinvestigationpurpose_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="soil_plot.soil_plot_type references codelist.id via soil_plot_soilplottype_fkey"><a href='soil_plot.html'>soil_plot</a><span class='relatedKey'>.soil_plot_type</span></td>
+                                                <td class="constraint detail">soil_plot_soilplottype_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="soil_profile.humus_type references codelist.id via soil_profile_humustype_fkey"><a href='soil_profile.html'>soil_profile</a><span class='relatedKey'>.humus_type</span></td>
+                                                <td class="constraint detail">soil_profile_humustype_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="soil_profile.parent_material references codelist.id via soil_profile_parentmaterial_fkey"><a href='soil_profile.html'>soil_profile</a><span class='relatedKey'>.parent_material</span></td>
+                                                <td class="constraint detail">soil_profile_parentmaterial_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="soil_profile.wrb_soil_group references codelist.id via soil_profile_codelist_id_fk"><a href='soil_profile.html'>soil_profile</a><span class='relatedKey'>.wrb_soil_group</span></td>
+                                                <td class="constraint detail">soil_profile_codelist_id_fk</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="soil_site.biographic_region references codelist.id via soil_site_biographicregion_fkey"><a href='soil_site.html'>soil_site</a><span class='relatedKey'>.biographic_region</span></td>
+                                                <td class="constraint detail">soil_site_biographicregion_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="soil_site.eunis references codelist.id via soil_site_eunis_fkey"><a href='soil_site.html'>soil_site</a><span class='relatedKey'>.eunis</span></td>
+                                                <td class="constraint detail">soil_site_eunis_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="soil_site.maes references codelist.id via soil_site_maes_fkey"><a href='soil_site.html'>soil_site</a><span class='relatedKey'>.maes</span></td>
+                                                <td class="constraint detail">soil_site_maes_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="soil_site.site_code_european references codelist.id via soil_site_sitecodeeuropean_fkey"><a href='soil_site.html'>soil_site</a><span class='relatedKey'>.site_code_european</span></td>
+                                                <td class="constraint detail">soil_site_sitecodeeuropean_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="soil_site.site_code_national references codelist.id via soil_site_sitecodenational_fkey"><a href='soil_site.html'>soil_site</a><span class='relatedKey'>.site_code_national</span></td>
+                                                <td class="constraint detail">soil_site_sitecodenational_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="soil_site.status references codelist.id via soil_site_status_fkey"><a href='soil_site.html'>soil_site</a><span class='relatedKey'>.status</span></td>
+                                                <td class="constraint detail">soil_site_status_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="wrb_qualifier_group_type.qualifier_place references codelist.id via wrb_qualifier_group_type_qualifierplace_fkey"><a href='wrb_qualifier_group_type.html'>wrb_qualifier_group_type</a><span class='relatedKey'>.qualifier_place</span></td>
+                                                <td class="constraint detail">wrb_qualifier_group_type_qualifierplace_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="wrb_qualifier_group_type.wrb_qualifier references codelist.id via wrb_qualifier_group_type_wrbqualifier_fkey"><a href='wrb_qualifier_group_type.html'>wrb_qualifier_group_type</a><span class='relatedKey'>.wrb_qualifier</span></td>
+                                                <td class="constraint detail">wrb_qualifier_group_type_wrbqualifier_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="wrb_qualifier_group_type.wrb_specifier_1 references codelist.id via wrb_qualifier_group_type_wrbspecifier1_fkey"><a href='wrb_qualifier_group_type.html'>wrb_qualifier_group_type</a><span class='relatedKey'>.wrb_specifier_1</span></td>
+                                                <td class="constraint detail">wrb_qualifier_group_type_wrbspecifier1_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="wrb_qualifier_group_type.wrb_specifier_2 references codelist.id via wrb_qualifier_group_type_wrbspecifier2_fkey"><a href='wrb_qualifier_group_type.html'>wrb_qualifier_group_type</a><span class='relatedKey'>.wrb_specifier_2</span></td>
+                                                <td class="constraint detail">wrb_qualifier_group_type_wrbspecifier2_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="parent">parent</span></td>
+                                    <td>int4</td>
+                                    <td>10</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="codelist.parent references codelist.id via codelist_parent_fkey"><a href='codelist.html'>codelist</a><span class='relatedKey'>.id</span></td>
+                                                <td class="constraint detail">codelist_parent_fkey</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i><span id="localid">localid</span></td>
+                                    <td>varchar</td>
+                                    <td>100</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i><span id="collection">collection</span></td>
+                                    <td>varchar</td>
+                                    <td>100</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Collection the entry belongs to.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="result_uri">result_uri</span></td>
+                                    <td>varchar</td>
+                                    <td>200</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="status">status</span></td>
+                                    <td>varchar</td>
+                                    <td>200</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Status of the entry in the source vocabulary (e.g. <a href="https://inspire.ec.europa.eu/registry/status/valid">https://inspire.ec.europa.eu/registry/status/valid</a>).</p></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-sitemap"></i>
+                            <h3 id="Indexes" class="box-title">Indexes</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table
+                                    id="indexes_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
+                                <thead>
+                                <tr>
+                                    <th>Constraint Name</th>
+                                    <th>Type</th>
+                                    <th>Sort</th>
+                                    <th>Column(s)</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> codelist_pkey</td>
+                                    <td>Primary key</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>id</td>
+                                </tr>
+                                <tr>
+                                    <td title='Indexed'>codelist_collection_idx</td>
+                                    <td>Performance</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>collection</td>
+                                </tr>
+                                <tr>
+                                    <td title='Indexed'>codelist_localid_idx</td>
+                                    <td>Performance</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>localid</td>
+                                </tr>
+                                <tr>
+                                    <td title='Indexed'>codelist_parent_idx</td>
+                                    <td>Performance</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>parent</td>
+                                </tr>
+                                <tr>
+                                    <td class='uniqueKey' title='Unique Key'><i class='icon ion-key iconkey'></i> collection_localid_uq_idx</td>
+                                    <td>Must be unique</td>
+                                    <td><span title='Ascending'>Asc</span>/<span title='Ascending'>Asc</span></td>
+                                    <td>collection + localid</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div><!-- /.box-body -->
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-code-fork"></i>
+                            <h3 id="Relationships" class="box-title">Relationships</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="nav-tabs-custom"><!-- Tabs within a box -->
+                                <h5>Close relationships within degrees of separation</h5>
+                                <ul class="nav nav-tabs pull-left ui-sortable-handle">
+                                    <li class="active"><a href="#oneDegreeImg-chart" data-toggle="tab" aria-expanded="true">One</a></li>
+                                    <li class=""><a href="#twodegreesDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two degrees</a></li>
+                                </ul>
+                                <div class="tab-content no-padding">
+                                    <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        
+                                        <a name='diagram'><object type="image/svg+xml" id="oneDegreeImg" data="../diagrams/tables/codelist.1degree.svg" class="diagram" border="0" align="left"></object></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        
+                                        <a name='diagram'><object type="image/svg+xml" id="twodegreesDegreeImg" data="../diagrams/tables/codelist.2degrees.svg" class="diagram" border="0" align="left"></object></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.box-body -->
+                    </div>
+                </section>
+                <script>
+                    var config = {
+                        pagination: true
+                    }
+                </script>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+                <div>
+                    <div class="pull-right hidden-xs">
+                        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+                        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+                    </div>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.2.4</a></strong>
+                </div>
+                <!-- /.container -->
+            </footer>
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="../bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <script src="../bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+        <!-- Bootstrap 3.3.5 -->
+        <script src="../bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="../bower/datatables.net/jquery.dataTables.min.js"></script>
+        <script src="../bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="../bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+        <script src="../bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.html5.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.print.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+        <!-- SheetJS -->
+        <script src="../bower/js-xlsx/xlsx.full.min.js"></script>
+        <!-- pdfmake -->
+        <script src="../bower/pdfmake/pdfmake.min.js"></script>
+        <script src="../bower/pdfmake/vfs_fonts.js"></script>
+        <!-- SlimScroll -->
+        <script src="../bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="../bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+        <!-- Salvattore -->
+        <script src="../bower/salvattore/salvattore.min.js"></script>
+        <!-- AnchorJS -->
+        <script src="../bower/anchor-js/anchor.min.js"></script>
+        <!-- CodeMirror -->
+        <script src="../bower/codemirror/codemirror.js"></script>
+        <script src="../bower/codemirror/sql.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../bower/admin-lte/dist/js/app.min.js"></script>
+        <script src="table.js"></script>
+        <script src="../schemaSpy.js"></script>
+    </body>
+</html>

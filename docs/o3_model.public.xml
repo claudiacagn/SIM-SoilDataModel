@@ -1,0 +1,1715 @@
+<?xml version="1.0" encoding="UTF-8"?><database name="o3_model" schema="public" type="PostgreSQL - 17.11 (Debian 17.11-1.pgdg13+2)">
+   <tables>
+      <table name="codelist" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="parent" foreignKey="codelist_parent_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+            <child column="id_codelist" foreignKey="codelist_i18n_idcodelist_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist_i18n"/>
+            <child column="type_phenomenon" foreignKey="disturbance_soil_site_type_phenomenon_fkey" implied="false" onDeleteCascade="false" schema="public" table="disturbance_soil_site"/>
+            <child column="code" foreignKey="existing_land_use_value_code_fkey" implied="false" onDeleteCascade="false" schema="public" table="existing_land_use_value"/>
+            <child column="experiment_type" foreignKey="experiment_soil_site_experiment_type_fkey" implied="false" onDeleteCascade="false" schema="public" table="experiment_soil_site"/>
+            <child column="fao_horizon_master_1" foreignKey="faohorizonmaster_1_fkey" implied="false" onDeleteCascade="false" schema="public" table="fao_horizon_notation_type"/>
+            <child column="fao_horizon_master_2" foreignKey="faohorizonmaster_2_fkey" implied="false" onDeleteCascade="false" schema="public" table="fao_horizon_notation_type"/>
+            <child column="fao_horizon_subordinate_1" foreignKey="faohorizonsubordinate_1_fkey" implied="false" onDeleteCascade="false" schema="public" table="fao_horizon_notation_type"/>
+            <child column="fao_horizon_subordinate_2" foreignKey="faohorizonsubordinate_2_fkey" implied="false" onDeleteCascade="false" schema="public" table="fao_horizon_notation_type"/>
+            <child column="fao_horizon_subordinate_3" foreignKey="faohorizonsubordinate_3_fkey" implied="false" onDeleteCascade="false" schema="public" table="fao_horizon_notation_type"/>
+            <child column="fao_prime" foreignKey="faoprime_fkey" implied="false" onDeleteCascade="false" schema="public" table="fao_horizon_notation_type"/>
+            <child column="land_cover_class_value" foreignKey="land_cover_observation_landcoverclassvalue_fkey" implied="false" onDeleteCascade="false" schema="public" table="land_cover_observation"/>
+            <child column="vegetation_type" foreignKey="land_cover_observation_vegetation_type_fkey" implied="false" onDeleteCascade="false" schema="public" table="land_cover_observation"/>
+            <child column="land_cover_class_value" foreignKey="land_cover_observation_mosaic_landcoverclassvalue_fkey" implied="false" onDeleteCascade="false" schema="public" table="land_cover_observation_mosaic"/>
+            <child column="vegetation_type" foreignKey="land_cover_observation_mosaic_vegetation_type_fkey" implied="false" onDeleteCascade="false" schema="public" table="land_cover_observation_mosaic"/>
+            <child column="grazing_regime" foreignKey="land_management_grazingregime_fkey" implied="false" onDeleteCascade="false" schema="public" table="land_management"/>
+            <child column="irrigation_water_source" foreignKey="land_management_irrigationwatersource_fkey" implied="false" onDeleteCascade="false" schema="public" table="land_management"/>
+            <child column="mechanical_disturbance_regime" foreignKey="land_management_mechanicaldisturbanceregime_fkey" implied="false" onDeleteCascade="false" schema="public" table="land_management"/>
+            <child column="nutrient_input" foreignKey="land_management_nutrientinput_fkey" implied="false" onDeleteCascade="false" schema="public" table="land_management"/>
+            <child column="organic_matter_balance" foreignKey="land_management_organicmatterbalance_fkey" implied="false" onDeleteCascade="false" schema="public" table="land_management"/>
+            <child column="phytosanitary_control_regime" foreignKey="land_management_phytosanitarycontrolregime_fkey" implied="false" onDeleteCascade="false" schema="public" table="land_management"/>
+            <child column="soil_cover_continuity" foreignKey="land_management_soilcovercontinuity_fkey" implied="false" onDeleteCascade="false" schema="public" table="land_management"/>
+            <child column="water_regime" foreignKey="land_management_waterregime_fkey" implied="false" onDeleteCascade="false" schema="public" table="land_management"/>
+            <child column="water_regime_alteration" foreignKey="land_management_waterregimealteration_fkey" implied="false" onDeleteCascade="false" schema="public" table="land_management"/>
+            <child column="base_phenomenon" foreignKey="observable_property_basephenomenon_fkey" implied="false" onDeleteCascade="false" schema="public" table="observable_property"/>
+            <child column="phenomenon_type" foreignKey="observable_property_phenomenontype_fkey" implied="false" onDeleteCascade="false" schema="public" table="observable_property"/>
+            <child column="result_codelist" foreignKey="observation_resultcodelist_fkey" implied="false" onDeleteCascade="false" schema="public" table="observation"/>
+            <child column="threshold_operator" foreignKey="observation_threshold_operator_fkey" implied="false" onDeleteCascade="false" schema="public" table="observation"/>
+            <child column="diagnostic_horizon" foreignKey="other_horizon_notation_type_diagnostichorizon_fkey" implied="false" onDeleteCascade="false" schema="public" table="other_horizon_notation_type"/>
+            <child column="horizon_notation" foreignKey="other_horizon_notation_type_horizonnotation_fkey" implied="false" onDeleteCascade="false" schema="public" table="other_horizon_notation_type"/>
+            <child column="layer_genesis_environment" foreignKey="pedogenesis_layergenesisenvironment_fkey" implied="false" onDeleteCascade="false" schema="public" table="pedogenesis"/>
+            <child column="layer_genesis_process" foreignKey="pedogenesis_layergenesisprocess_fkey" implied="false" onDeleteCascade="false" schema="public" table="pedogenesis"/>
+            <child column="layer_genesis_process_state" foreignKey="pedogenesis_layergenesisprocessstate_fkey" implied="false" onDeleteCascade="false" schema="public" table="pedogenesis"/>
+            <child column="layer_rock_type" foreignKey="pedogenesis_layerrocktype_fkey" implied="false" onDeleteCascade="false" schema="public" table="pedogenesis"/>
+            <child column="pedogenesis_layer_type" foreignKey="pedogenesis_layertype_fkey" implied="false" onDeleteCascade="false" schema="public" table="pedogenesis"/>
+            <child column="id_storage" foreignKey="preparation_process_storage_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="preparation_process"/>
+            <child column="id_transport" foreignKey="preparation_process_transport_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="preparation_process"/>
+            <child column="name" foreignKey="process_parameter_name_fkey" implied="false" onDeleteCascade="false" schema="public" table="process_parameter"/>
+            <child column="layer_type" foreignKey="profile_element_layertype_fkey" implied="false" onDeleteCascade="false" schema="public" table="profile_element"/>
+            <child column="profile_element_type" foreignKey="profile_element_elementtype_fkey" implied="false" onDeleteCascade="false" schema="public" table="profile_element"/>
+            <child column="purpose" foreignKey="soil_investigation_purpose_soilinvestigationpurpose_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_investigation_purpose"/>
+            <child column="soil_plot_type" foreignKey="soil_plot_soilplottype_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_plot"/>
+            <child column="humus_type" foreignKey="soil_profile_humustype_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_profile"/>
+            <child column="parent_material" foreignKey="soil_profile_parentmaterial_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_profile"/>
+            <child column="wrb_soil_group" foreignKey="soil_profile_codelist_id_fk" implied="false" onDeleteCascade="false" schema="public" table="soil_profile"/>
+            <child column="biographic_region" foreignKey="soil_site_biographicregion_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_site"/>
+            <child column="eunis" foreignKey="soil_site_eunis_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_site"/>
+            <child column="maes" foreignKey="soil_site_maes_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_site"/>
+            <child column="site_code_european" foreignKey="soil_site_sitecodeeuropean_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_site"/>
+            <child column="site_code_national" foreignKey="soil_site_sitecodenational_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_site"/>
+            <child column="status" foreignKey="soil_site_status_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_site"/>
+            <child column="qualifier_place" foreignKey="wrb_qualifier_group_type_qualifierplace_fkey" implied="false" onDeleteCascade="false" schema="public" table="wrb_qualifier_group_type"/>
+            <child column="wrb_qualifier" foreignKey="wrb_qualifier_group_type_wrbqualifier_fkey" implied="false" onDeleteCascade="false" schema="public" table="wrb_qualifier_group_type"/>
+            <child column="wrb_specifier_1" foreignKey="wrb_qualifier_group_type_wrbspecifier1_fkey" implied="false" onDeleteCascade="false" schema="public" table="wrb_qualifier_group_type"/>
+            <child column="wrb_specifier_2" foreignKey="wrb_qualifier_group_type_wrbspecifier2_fkey" implied="false" onDeleteCascade="false" schema="public" table="wrb_qualifier_group_type"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="parent" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="codelist_parent_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="localid" nullable="false" remarks="" size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="collection" nullable="false" remarks="Collection the entry belongs to." size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="result_uri" nullable="true" remarks="" size="200" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="status" nullable="false" remarks="Status of the entry in the source vocabulary (e.g. https://inspire.ec.europa.eu/registry/status/valid)." size="200" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="codelist_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="codelist_collection_idx" unique="false">
+            <column ascending="true" name="collection"/>
+         </index>
+         <index name="codelist_localid_idx" unique="false">
+            <column ascending="true" name="localid"/>
+         </index>
+         <index name="codelist_parent_idx" unique="false">
+            <column ascending="true" name="parent"/>
+         </index>
+         <index name="collection_localid_uq_idx" unique="true">
+            <column ascending="true" name="collection"/>
+            <column ascending="true" name="localid"/>
+         </index>
+      </table>
+      <table name="codelist_i18n" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="id_codelist" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="codelist_i18n_idcodelist_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="definition" nullable="false" remarks="" size="200" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="description" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="label" nullable="true" remarks="Label of the entry in the given language." size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="language" nullable="false" remarks="" size="10" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="codelist_i18n_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="codelist_language_uq_idx" unique="true">
+            <column ascending="true" name="id_codelist"/>
+            <column ascending="true" name="language"/>
+         </index>
+      </table>
+      <table name="contaminated_site" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="id_soil_site" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="contaminated_site_idsoilsite_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_site"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="geometry" nullable="false" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="description" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="4" name="valid_from" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="5" name="valid_to" nullable="false" remarks="End of the validity period; 31/12/9999 means open-ended." size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="contaminated_site_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="contaminated_site_geometry_gist_idx" unique="false">
+            <column ascending="true" name="geometry"/>
+         </index>
+         <index name="contaminated_site_id_soil_site_idx" unique="false">
+            <column ascending="true" name="id_soil_site"/>
+         </index>
+      </table>
+      <table name="datastream" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_datastream" foreignKey="observation_iddatastream_fkey" implied="false" onDeleteCascade="false" schema="public" table="observation"/>
+         </column>
+         <column autoUpdated="false" defaultValue="(gen_random_uuid())::text" digits="0" id="1" name="guidkey" nullable="false" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="id_soil_site" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="datastream_idsoilsite_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_site"/>
+            <parent column="located_on" foreignKey="datastream_chain_soilplot_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_plot"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="id_soil_plot" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="datastream_idsoilplot_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_plot"/>
+            <parent column="location" foreignKey="datastream_chain_soilprofile_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_profile"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="id_soil_profile" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id_soil_profile" foreignKey="datastream_chain_derivedprofile_fkey" implied="false" onDeleteCascade="false" schema="public" table="is_based_on_observed_soil_profile"/>
+            <parent column="id" foreignKey="datastream_idsoilprofile_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_profile"/>
+            <parent column="is_part_of" foreignKey="datastream_chain_profileelement_fkey" implied="false" onDeleteCascade="false" schema="public" table="profile_element"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="id_profile_element" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="datastream_idprofileelement_fkey" implied="false" onDeleteCascade="false" schema="public" table="profile_element"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="id_soil_derived_object" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id_soil_derived_object" foreignKey="datastream_chain_derivedprofile_fkey" implied="false" onDeleteCascade="false" schema="public" table="is_based_on_observed_soil_profile"/>
+            <parent column="id" foreignKey="datastream_idsoilderivedobject_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_derived_object"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="id_sensor" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="datastream_idsensor_fkey" implied="false" onDeleteCascade="false" schema="public" table="sensor"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="id_observed_property" nullable="false" remarks="Observed property." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="datastream_idobservedproperty_fkey" implied="false" onDeleteCascade="false" schema="public" table="observable_property"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="id_process" nullable="false" remarks="Sampling or analysis process." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="datastream_idprocess_fkey" implied="false" onDeleteCascade="false" schema="public" table="process"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="id_equipment" nullable="true" remarks="Equipment used for the observation (optional)." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="datastream_idequipment_fkey" implied="false" onDeleteCascade="false" schema="public" table="equipments"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="id_preparation_process" nullable="true" remarks="Sample preparation process (transport and storage); a preparation process can be shared by several datastreams." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="datastream_idpreparation_fkey" implied="false" onDeleteCascade="false" schema="public" table="preparation_process"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="id_datastream_collection" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="datastream_iddatastreamcollection_fkey" implied="false" onDeleteCascade="false" schema="public" table="datastream_collection"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="13" name="begin_result_time" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="14" name="end_result_time" nullable="false" remarks="End of the result time window; 31/12/9999 means open-ended." size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="datastream_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="datastream_beginresulttime_endresulttime_idx" unique="false">
+            <column ascending="true" name="begin_result_time"/>
+            <column ascending="true" name="end_result_time"/>
+         </index>
+         <index name="datastream_context_window_uq_idx" unique="true">
+            <column ascending="true" name="id_observed_property"/>
+            <column ascending="true" name="id_process"/>
+            <column ascending="true" name="begin_result_time"/>
+            <column ascending="true" name="end_result_time"/>
+         </index>
+         <index name="datastream_guidkey_uq_idx" unique="true">
+            <column ascending="true" name="guidkey"/>
+         </index>
+         <index name="datastream_idpreparation_idx" unique="false">
+            <column ascending="true" name="id_preparation_process"/>
+         </index>
+         <index name="datastream_idprofileelement_idx" unique="false">
+            <column ascending="true" name="id_profile_element"/>
+         </index>
+         <index name="datastream_idsoilderivedobject_idx" unique="false">
+            <column ascending="true" name="id_soil_derived_object"/>
+         </index>
+         <index name="datastream_idsoilplot_idx" unique="false">
+            <column ascending="true" name="id_soil_plot"/>
+         </index>
+         <index name="datastream_site_profile_idex" unique="false">
+            <column ascending="true" name="id_soil_site"/>
+            <column ascending="true" name="id_soil_profile"/>
+         </index>
+         <checkConstraint constraint="((id_profile_element IS NULL) OR (id_soil_profile IS NOT NULL))" name="datastream_pe_requires_profile_check"/>
+         <checkConstraint constraint="((id_soil_profile IS NULL) OR (id_soil_plot IS NOT NULL) OR (id_soil_derived_object IS NOT NULL))" name="datastream_profile_context_check"/>
+      </table>
+      <table name="datastream_collection" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_datastream_collection" foreignKey="datastream_iddatastreamcollection_fkey" implied="false" onDeleteCascade="false" schema="public" table="datastream"/>
+         </column>
+         <column autoUpdated="false" defaultValue="(gen_random_uuid())::text" digits="0" id="1" name="guidkey" nullable="false" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="name" nullable="false" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="description" nullable="false" remarks="" size="200" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="observed_area" nullable="false" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="properties_path" nullable="true" remarks="Path of the file containing metadata about the collection (e.g. //fileuri)." size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="6" name="begin_phenomenon_time" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="7" name="end_phenomenon_time" nullable="false" remarks="End of the phenomenon time window; 31/12/9999 means open-ended." size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="datastreamcollection_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="datastream_collection_guidkey_uq_idx" unique="true">
+            <column ascending="true" name="guidkey"/>
+         </index>
+      </table>
+      <table name="derived_profile_presence_in_soil_body" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="id_soil_body" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="derived_profile_presence_in_soil_body_idsoilbody_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_body"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="id_soil_profile" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="derived_profile_presence_in_soil_body_idsoilprofile_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_profile"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="3" name="derived_profile_percentage_lower_value" nullable="false" remarks="Lower bound of the percentage range of the soil body covered by the derived profile (0-1)." size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="4" name="derived_profile_percentage_upper_value" nullable="false" remarks="Upper bound of the percentage range of the soil body covered by the derived profile (0-1)." size="17" type="float8" typeCode="8"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="derivedprofilepresenceinsoilbody_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="soilbody_profile_idx" unique="false">
+            <column ascending="true" name="id_soil_body"/>
+            <column ascending="true" name="id_soil_profile"/>
+         </index>
+         <index name="uq_derivedprofilepresenceinsoilbody_idsoilbody_idsoilprofile" unique="true">
+            <column ascending="true" name="id_soil_body"/>
+            <column ascending="true" name="id_soil_profile"/>
+         </index>
+      </table>
+      <table name="disturbance_soil_site" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id_soil_site" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="disturbance_soil_site_idsoilsite_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_site"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="type_phenomenon" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="disturbance_soil_site_type_phenomenon_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="2" name="valid_from" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="3" name="valid_to" nullable="false" remarks="End of the validity period; 31/12/9999 means open-ended." size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="description" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="id_soil_site" sequenceNumberInPK="1"/>
+         <primaryKey column="type_phenomenon" sequenceNumberInPK="2"/>
+         <primaryKey column="valid_from" sequenceNumberInPK="3"/>
+         <primaryKey column="valid_to" sequenceNumberInPK="4"/>
+         <index name="disturbance_soilsite_pkey" unique="true">
+            <column ascending="true" name="id_soil_site"/>
+            <column ascending="true" name="type_phenomenon"/>
+            <column ascending="true" name="valid_from"/>
+            <column ascending="true" name="valid_to"/>
+         </index>
+      </table>
+      <table name="document_citation" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_document_citation" foreignKey="process_document_citation_iddocumentcitation_fkey" implied="false" onDeleteCascade="false" schema="public" table="process_document_citation"/>
+         </column>
+         <column autoUpdated="false" defaultValue="(gen_random_uuid())::text" digits="0" id="1" name="guidkey" nullable="false" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="short_name" nullable="true" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="specific_reference" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="link" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="6" name="date" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="document_citation_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="document_citation_date_idx" unique="false">
+            <column ascending="true" name="date"/>
+         </index>
+         <index name="document_citation_guidkey_uq_idx" unique="true">
+            <column ascending="true" name="guidkey"/>
+         </index>
+         <index name="uq_name_date_link" unique="true">
+            <column ascending="true" name="name"/>
+            <column ascending="true" name="date"/>
+            <column ascending="true" name="link"/>
+         </index>
+      </table>
+      <table name="equipments" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_equipment" foreignKey="datastream_idequipment_fkey" implied="false" onDeleteCascade="false" schema="public" table="datastream"/>
+            <child column="id_equipment" foreignKey="soil_profile_idequipment_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_profile"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="description" nullable="true" remarks="" size="200" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="properties" nullable="true" remarks="" size="2147483647" type="jsonb" typeCode="1111"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="equipments_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="equipments_name_uq_idx" unique="true">
+            <column ascending="true" name="name"/>
+         </index>
+      </table>
+      <table name="existing_land_use_object" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_existing_land_use_object" foreignKey="existing_land_use_value_idexistinglanduseobject_fkey" implied="false" onDeleteCascade="false" schema="public" table="existing_land_use_value"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="id_inspire" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="existing_land_use_object_idinspire_fkey" implied="false" onDeleteCascade="false" schema="public" table="inspire"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="id_soil_site" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="existing_land_use_object_idsoilsite_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_site"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="geometry" nullable="false" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="4" name="observation_date" nullable="false" remarks="Date of the observation the description refers to." size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="5" name="valid_from" nullable="false" remarks="Time when the phenomenon started to exist in the real world." size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="6" name="valid_to" nullable="false" remarks="Time from which the phenomenon no longer exists in the real world; 31/12/9999 means open-ended." size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="7" name="begin_lifespan_version" nullable="false" remarks="Date and time this version of the spatial object was inserted or changed in the dataset." size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="8" name="end_lifespan_version" nullable="false" remarks="Date and time this version of the spatial object was superseded or retired; 31/12/9999 means open-ended." size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="existing_land_use_object_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="existing_land_use_object_geometry_gist_idx" unique="false">
+            <column ascending="true" name="geometry"/>
+         </index>
+         <index name="existing_land_use_object_idinspire_idx" unique="false">
+            <column ascending="true" name="id_inspire"/>
+         </index>
+         <index name="existing_land_use_object_idsoilsite_idx" unique="false">
+            <column ascending="true" name="id_soil_site"/>
+         </index>
+         <index name="existing_land_use_object_site_geom_obs_valid_uq_idx" unique="true">
+            <column ascending="true" name="id_soil_site"/>
+            <column ascending="true" name="geometry"/>
+            <column ascending="true" name="observation_date"/>
+            <column ascending="true" name="valid_from"/>
+            <column ascending="true" name="valid_to"/>
+         </index>
+      </table>
+      <table name="existing_land_use_value" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="code" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="existing_land_use_value_code_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="id_existing_land_use_object" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="existing_land_use_value_idexistinglanduseobject_fkey" implied="false" onDeleteCascade="false" schema="public" table="existing_land_use_object"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="3" name="percentage" nullable="false" remarks="Percentage of coverage (0-1)." size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="type" nullable="false" remarks="Type of classification: HILUCS or SPECIFIC." size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="existing_land_use_value_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="existing_land_use_value_code_idx" unique="false">
+            <column ascending="true" name="code"/>
+         </index>
+         <index name="existing_land_use_value_idexistinglanduseobject_idx" unique="false">
+            <column ascending="true" name="id_existing_land_use_object"/>
+         </index>
+         <index name="existing_land_use_value_obj_code_percentage_type_uq_idx" unique="true">
+            <column ascending="true" name="id_existing_land_use_object"/>
+            <column ascending="true" name="code"/>
+            <column ascending="true" name="percentage"/>
+            <column ascending="true" name="type"/>
+         </index>
+         <checkConstraint constraint="((percentage &gt;= (0)::double precision) AND (percentage &lt;= (1)::double precision))" name="existing_land_use_value_percentage_check"/>
+         <checkConstraint constraint="((type)::text = ANY (ARRAY[('HILUCS'::character varying)::text, ('SPECIFIC'::character varying)::text]))" name="existing_land_use_value_type_check"/>
+      </table>
+      <table name="experiment_soil_site" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="experiment_type" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="experiment_soil_site_experiment_type_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="id_soil_site" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="experiment_soil_site_idsoilsite_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_site"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="description" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="3" name="valid_from" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="4" name="valid_to" nullable="false" remarks="End of the validity period; 31/12/9999 means open-ended." size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="id_soil_site" sequenceNumberInPK="1"/>
+         <primaryKey column="experiment_type" sequenceNumberInPK="2"/>
+         <primaryKey column="valid_from" sequenceNumberInPK="3"/>
+         <primaryKey column="valid_to" sequenceNumberInPK="4"/>
+         <index name="experiment_soilsite_pkey" unique="true">
+            <column ascending="true" name="id_soil_site"/>
+            <column ascending="true" name="experiment_type"/>
+            <column ascending="true" name="valid_from"/>
+            <column ascending="true" name="valid_to"/>
+         </index>
+      </table>
+      <table name="fao_horizon_notation_type" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_fao_horizon_notation_type" foreignKey="profile_element_idfao_fkey" implied="false" onDeleteCascade="false" schema="public" table="profile_element"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="fao_horizon_discontinuity" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="fao_horizon_master_1" nullable="true" remarks="FAO master horizon 1 (reference to codelist)." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="faohorizonmaster_1_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="fao_horizon_master_2" nullable="true" remarks="FAO master horizon 2 (reference to codelist)." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="faohorizonmaster_2_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="fao_horizon_subordinate_1" nullable="true" remarks="FAO subordinate horizon 1 (reference to codelist)." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="faohorizonsubordinate_1_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="fao_horizon_subordinate_2" nullable="true" remarks="FAO subordinate horizon 2 (reference to codelist)." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="faohorizonsubordinate_2_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="fao_horizon_subordinate_3" nullable="true" remarks="FAO subordinate horizon 3 (reference to codelist)." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="faohorizonsubordinate_3_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="fao_horizon_vertical" nullable="true" remarks="Vertical number of the horizon." size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="fao_prime" nullable="true" remarks="FAO prime (reference to codelist)." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="faoprime_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="is_original_classification" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="faohorizonnotationtype_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="group" remarks="Groups of users scoped to an organisation (e.g. 'ISPRA readers', 'CREA editors')." schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_group" foreignKey="inspire_permission_id_group_fkey" implied="false" onDeleteCascade="false" schema="public" table="inspire_permission"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="id_organisation" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="group_id_organisation_fkey" implied="false" onDeleteCascade="false" schema="public" table="organisation"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="idm_external_id" nullable="true" remarks="External identifier (IDM) used to match the group with the authentication system; NULL for special groups handled at runtime." size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="name" nullable="false" remarks="" size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="description" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="5" name="is_active" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="6" name="created_at" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="7" name="updated_at" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="group_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="group_id_organisation_idx" unique="false">
+            <column ascending="true" name="id_organisation"/>
+         </index>
+         <index name="group_id_organisation_name_key" unique="true">
+            <column ascending="true" name="id_organisation"/>
+            <column ascending="true" name="name"/>
+         </index>
+         <index name="group_idm_external_id_uq_idx" unique="true">
+            <column ascending="true" name="idm_external_id"/>
+         </index>
+      </table>
+      <table name="inspire" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_inspire" foreignKey="existing_land_use_object_idinspire_fkey" implied="false" onDeleteCascade="false" schema="public" table="existing_land_use_object"/>
+            <child column="id_inspire" foreignKey="inspire_organisation_id_inspire_fkey" implied="false" onDeleteCascade="false" schema="public" table="inspire_organisation"/>
+            <child column="id_inspire" foreignKey="land_cover_unit_idinspire_fkey" implied="false" onDeleteCascade="false" schema="public" table="land_cover_unit"/>
+            <child column="id_inspire" foreignKey="profile_element_idinspire_fkey" implied="false" onDeleteCascade="false" schema="public" table="profile_element"/>
+            <child column="id_inspire" foreignKey="soil_body_idinspire_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_body"/>
+            <child column="id_inspire" foreignKey="soil_derived_object_idinspire_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_derived_object"/>
+            <child column="id_inspire" foreignKey="soil_plot_idinspire_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_plot"/>
+            <child column="id_inspire" foreignKey="soil_profile_idinspire_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_profile"/>
+            <child column="id_inspire" foreignKey="soil_site_idinspire_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_site"/>
+            <child column="id_inspire" foreignKey="soil_theme_coverage_idinspire_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_theme_coverage"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="inspireid_localid" nullable="false" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="inspireid_namespace" nullable="false" remarks="" size="200" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="inspireid_versionid" nullable="false" remarks="" size="10" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="4" name="start_date" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="5" name="end_date" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="inspire_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="inspire_inspireid_localid_idx" unique="false">
+            <column ascending="true" name="inspireid_localid"/>
+         </index>
+         <index name="inspire_localid_namespace_versionid_uq_idx" unique="true">
+            <column ascending="true" name="inspireid_localid"/>
+            <column ascending="true" name="inspireid_namespace"/>
+            <column ascending="true" name="inspireid_versionid"/>
+         </index>
+         <index name="inspire_start_date_end_date_idx" unique="false">
+            <column ascending="true" name="start_date"/>
+            <column ascending="true" name="end_date"/>
+         </index>
+      </table>
+      <table name="inspire_organisation" remarks="1:1 association between an INSPIRE identifier and the organisation that owns the dataset, with visibility level." schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id_inspire" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_inspire_organisation" foreignKey="inspire_permission_id_inspire_organisation_fkey" implied="false" onDeleteCascade="false" schema="public" table="inspire_permission"/>
+            <parent column="id" foreignKey="inspire_organisation_id_inspire_fkey" implied="false" onDeleteCascade="false" schema="public" table="inspire"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="id_organisation" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="inspire_organisation_id_organisation_fkey" implied="false" onDeleteCascade="false" schema="public" table="organisation"/>
+         </column>
+         <column autoUpdated="false" defaultValue="'PROTECTED'::character varying" digits="0" id="2" name="visibility" nullable="false" remarks="PUBLIC = open access. PROTECTED = access limited to groups with an explicit permission." size="10" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="3" name="assigned_at" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="id_inspire" sequenceNumberInPK="1"/>
+         <index name="inspire_organisation_pkey" unique="true">
+            <column ascending="true" name="id_inspire"/>
+         </index>
+         <index name="inspire_organisation_id_organisation_idx" unique="false">
+            <column ascending="true" name="id_organisation"/>
+         </index>
+         <checkConstraint constraint="((visibility)::text = ANY (ARRAY[('PUBLIC'::character varying)::text, ('PROTECTED'::character varying)::text, ('PRIVATE'::character varying)::text]))" name="inspire_organisation_visibility_check"/>
+      </table>
+      <table name="inspire_permission" remarks="Permissions granted to a group on a specific dataset." schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="id_inspire_organisation" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id_inspire" foreignKey="inspire_permission_id_inspire_organisation_fkey" implied="false" onDeleteCascade="false" schema="public" table="inspire_organisation"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="id_permission" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="inspire_permission_id_permission_fkey" implied="false" onDeleteCascade="false" schema="public" table="permission"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="id_group" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="inspire_permission_id_group_fkey" implied="false" onDeleteCascade="false" schema="public" table="group"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="description" nullable="true" remarks="Human-readable label (e.g. 'ISPRA - readers on Site X')." size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="5" name="granted_at" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="granted_by" nullable="false" remarks="External identifier (IDM) of the administrator who granted the permission." size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="inspire_permission_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="inspire_permission_granted_by_idx" unique="false">
+            <column ascending="true" name="granted_by"/>
+         </index>
+         <index name="inspire_permission_id_group_idx" unique="false">
+            <column ascending="true" name="id_group"/>
+         </index>
+         <index name="inspire_permission_id_inspire_organisation_id_group_id_perm_key" unique="true">
+            <column ascending="true" name="id_inspire_organisation"/>
+            <column ascending="true" name="id_group"/>
+            <column ascending="true" name="id_permission"/>
+         </index>
+         <index name="inspire_permission_id_inspire_organisation_idx" unique="false">
+            <column ascending="true" name="id_inspire_organisation"/>
+         </index>
+         <index name="inspire_permission_id_permission_idx" unique="false">
+            <column ascending="true" name="id_permission"/>
+         </index>
+      </table>
+      <table name="is_based_on_observed_soil_profile" remarks="Association between an observed soil profile and a derived soil object." schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="id_soil_derived_object" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_soil_derived_object" foreignKey="datastream_chain_derivedprofile_fkey" implied="false" onDeleteCascade="false" schema="public" table="datastream"/>
+            <parent column="id" foreignKey="is_based_on_observed_soil_profile_idsoilderivedobject_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_derived_object"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="id_soil_profile" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_soil_profile" foreignKey="datastream_chain_derivedprofile_fkey" implied="false" onDeleteCascade="false" schema="public" table="datastream"/>
+            <parent column="id" foreignKey="is_based_on_observed_soil_profile_idsoilprofile_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_profile"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="is_based_on_observed_soil_profile_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="is_based_on_observed_soil_profile_idsoilderivedobject_idx" unique="false">
+            <column ascending="true" name="id_soil_derived_object"/>
+         </index>
+         <index name="is_based_on_observed_soil_profile_idsoilprofile_idx" unique="false">
+            <column ascending="true" name="id_soil_profile"/>
+         </index>
+         <index name="isbasedonobssoilprofile_idsoilprofile_idsoilderivobject_uq_idx" unique="true">
+            <column ascending="true" name="id_soil_profile"/>
+            <column ascending="true" name="id_soil_derived_object"/>
+         </index>
+      </table>
+      <table name="is_based_on_soil_body" remarks="Association between a soil body and a derived soil object." schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="id_soil_body" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="is_based_on_soil_body_idsoilbody_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_body"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="id_soil_derived_object" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="is_based_on_soil_body_idsoilderivedobject_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_derived_object"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="is_based_on_soil_body_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="is_based_on_soil_body_idsoilbody_idx" unique="false">
+            <column ascending="true" name="id_soil_body"/>
+         </index>
+         <index name="is_based_on_soil_body_idsoilderivedobject_idsoilbody_uq_idx" unique="true">
+            <column ascending="true" name="id_soil_derived_object"/>
+            <column ascending="true" name="id_soil_body"/>
+         </index>
+         <index name="is_based_on_soil_body_idsoilderivedobject_idx" unique="false">
+            <column ascending="true" name="id_soil_derived_object"/>
+         </index>
+         <index name="uq_is_based_on_soil_body_soilderivedobject_soilbody" unique="true">
+            <column ascending="true" name="id_soil_derived_object"/>
+            <column ascending="true" name="id_soil_body"/>
+         </index>
+      </table>
+      <table name="is_based_on_soil_derived_object" remarks="Association between a derived soil object and another derived soil object." schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="id_base" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="is_based_on_soil_derived_object_idbase_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_derived_object"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="id_related" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="is_based_on_soil_derived_object_idrelated_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_derived_object"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="is_based_on_soil_derived_object_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="is_based_on_soil_derived_object_idbase_idrelated_uq_idx" unique="true">
+            <column ascending="true" name="id_base"/>
+            <column ascending="true" name="id_related"/>
+         </index>
+      </table>
+      <table name="is_derived_from" remarks="Derivation between two soil profiles." schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="id_base" nullable="false" remarks="Reference to the non-derived profile." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="is_derived_from_idbase_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_profile"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="id_related" nullable="false" remarks="Reference to the derived profile." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="is_derived_from_idrelated_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_profile"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="is_derived_from_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="is_derived_from_relationship_uq_idx" unique="true">
+            <column ascending="true" name="id_base"/>
+            <column ascending="true" name="id_related"/>
+         </index>
+         <index name="uq_is_derived_from_idbase_idrelated" unique="true">
+            <column ascending="true" name="id_base"/>
+            <column ascending="true" name="id_related"/>
+         </index>
+      </table>
+      <table name="land_cover_observation" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_land_cover_observation" foreignKey="land_cover_observation_mosaic_idlandcoverobservation_fkey" implied="false" onDeleteCascade="false" schema="public" table="land_cover_observation_mosaic"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="id_land_cover_unit" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="land_cover_observation_idlandcoverunit_fkey" implied="false" onDeleteCascade="false" schema="public" table="land_cover_unit"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="land_cover_class_value" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="land_cover_observation_landcoverclassvalue_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="3" name="observation_date" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="vegetation_type" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="land_cover_observation_vegetation_type_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="land_cover_observation_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="land_cover_observation_idlandcoverunit_idx" unique="false">
+            <column ascending="true" name="id_land_cover_unit"/>
+         </index>
+         <index name="land_cover_observation_observationdate_idx" unique="false">
+            <column ascending="true" name="observation_date"/>
+         </index>
+         <index name="land_cover_observation_vegetation_type_idx" unique="false">
+            <column ascending="true" name="vegetation_type"/>
+         </index>
+         <index name="landcoverobs_idlandcoverunit_landcoverclassvalue_obsdate_unq" unique="true">
+            <column ascending="true" name="id_land_cover_unit"/>
+            <column ascending="true" name="land_cover_class_value"/>
+            <column ascending="true" name="observation_date"/>
+         </index>
+      </table>
+      <table name="land_cover_observation_mosaic" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="id_land_cover_observation" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="land_cover_observation_mosaic_idlandcoverobservation_fkey" implied="false" onDeleteCascade="false" schema="public" table="land_cover_observation"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="land_cover_class_value" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="land_cover_observation_mosaic_landcoverclassvalue_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="3" name="covered_percentage" nullable="false" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="vegetation_type" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="land_cover_observation_mosaic_vegetation_type_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="land_cover_observation_mosaic_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="land_cover_observation_mosaic_idlandcoverobservation_idx" unique="false">
+            <column ascending="true" name="id_land_cover_observation"/>
+         </index>
+         <index name="land_cover_observation_mosaic_obs_class_uq_idx" unique="true">
+            <column ascending="true" name="id_land_cover_observation"/>
+            <column ascending="true" name="land_cover_class_value"/>
+         </index>
+         <index name="land_cover_observation_mosaic_vegetation_type_idx" unique="false">
+            <column ascending="true" name="vegetation_type"/>
+         </index>
+      </table>
+      <table name="land_cover_unit" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_land_cover_unit" foreignKey="land_cover_observation_idlandcoverunit_fkey" implied="false" onDeleteCascade="false" schema="public" table="land_cover_observation"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="id_inspire" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="land_cover_unit_idinspire_fkey" implied="false" onDeleteCascade="false" schema="public" table="inspire"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="id_soil_site" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="land_cover_unit_idsoilsite_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_site"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="geometry" nullable="false" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="4" name="begin_lifespan_version" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="5" name="end_lifespan_version" nullable="false" remarks="Date and time this version of the spatial object was superseded or retired; 31/12/9999 means open-ended." size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="land_cover_unit_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="land_cover_unit_geometry_gist_idx" unique="false">
+            <column ascending="true" name="geometry"/>
+         </index>
+         <index name="land_cover_unit_idinspire_idx" unique="false">
+            <column ascending="true" name="id_inspire"/>
+         </index>
+         <index name="land_cover_unit_idsoilsite_idx" unique="false">
+            <column ascending="true" name="id_soil_site"/>
+         </index>
+         <index name="land_cover_unit_site_geometry_uq_idx" unique="true">
+            <column ascending="true" name="id_soil_site"/>
+            <column ascending="true" name="geometry"/>
+         </index>
+      </table>
+      <table name="land_management" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="id_soil_site" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="land_management_idsoilsite_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_site"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="soil_cover_continuity" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="land_management_soilcovercontinuity_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="mechanical_disturbance_regime" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="land_management_mechanicaldisturbanceregime_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="organic_matter_balance" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="land_management_organicmatterbalance_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="nutrient_input" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="land_management_nutrientinput_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="phytosanitary_control_regime" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="land_management_phytosanitarycontrolregime_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="water_regime_alteration" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="land_management_waterregimealteration_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="water_regime" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="land_management_waterregime_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="irrigation_water_source" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="land_management_irrigationwatersource_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="grazing_regime" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="land_management_grazingregime_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="description" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="12" name="observation_date" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="land_management_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="land_management_id_soil_site_idx" unique="false">
+            <column ascending="true" name="id_soil_site"/>
+         </index>
+         <index name="land_management_site_date_uq_idx" unique="true">
+            <column ascending="true" name="id_soil_site"/>
+            <column ascending="true" name="observation_date"/>
+         </index>
+      </table>
+      <table name="observable_property" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_observed_property" foreignKey="datastream_idobservedproperty_fkey" implied="false" onDeleteCascade="false" schema="public" table="datastream"/>
+            <child column="soil_theme_parameter" foreignKey="soil_theme_coverage_idobservableproperty_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_theme_coverage"/>
+         </column>
+         <column autoUpdated="false" defaultValue="(gen_random_uuid())::text" digits="0" id="1" name="guidkey" nullable="false" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="id_uom" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="observable_property_iduom_fkey" implied="false" onDeleteCascade="false" schema="public" table="unit_of_measure"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="base_phenomenon" nullable="false" remarks="Reference to the codelist entry linking the official description of the observable property (e.g. http://inspire.ec.europa.eu/codelist/ProfileElementParameterNameValue/pHValue)." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="observable_property_basephenomenon_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="phenomenon_type" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="observable_property_phenomenontype_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="full_name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="name" nullable="false" remarks="" size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="cas_code" nullable="true" remarks="CAS registry number for chemical parameters (EEA); optional." size="30" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="priority" nullable="true" remarks="Priority (EEA): 1 = highest priority." size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="type" nullable="false" remarks="Expected data type: NUMERIC, STRING or CODELIST (EEA)." size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="10" name="domain_min" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="11" name="domain_max" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="observable_property_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="observable_property_guidkey_uq_idx" unique="true">
+            <column ascending="true" name="guidkey"/>
+         </index>
+         <index name="observable_property_iduom_idx" unique="false">
+            <column ascending="true" name="id_uom"/>
+         </index>
+         <index name="observable_property_name_id_uom_uq_idx" unique="true">
+            <column ascending="true" name="name"/>
+            <column ascending="true" name="id_uom"/>
+         </index>
+         <index name="observable_property_name_idx" unique="false">
+            <column ascending="true" name="name"/>
+         </index>
+         <checkConstraint constraint="((type)::text = ANY (ARRAY[('NUMERIC'::character varying)::text, ('STRING'::character varying)::text, ('CODELIST'::character varying)::text]))" name="observable_property_type_check"/>
+      </table>
+      <table name="observation" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="(gen_random_uuid())::text" digits="0" id="1" name="guidkey" nullable="false" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="id_datastream" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="observation_iddatastream_fkey" implied="false" onDeleteCascade="false" schema="public" table="datastream"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="id_laboratory" nullable="true" remarks="Laboratory that performed the analysis." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="observation_related_party_id_laboratory_fkey" implied="false" onDeleteCascade="false" schema="public" table="related_party"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="result_codelist" nullable="true" remarks="Categorical result (reference to codelist); used when the result is a coded value. Numeric results are stored in result_value." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="observation_resultcodelist_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="result_value" nullable="true" remarks="" size="0" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="threshold_operator" nullable="true" remarks="Threshold operator of the result (reference to the THRESHOLD_OPERATOR codelist): NULL = measured value; &lt;, &gt;, &lt;=, &gt;= = limit of detection (result_value holds the LOD); ND = not detected (result_value is NULL)." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="observation_threshold_operator_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="result_str" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="8" name="phenomenon_time" nullable="false" remarks="Time the phenomenon was observed." size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="9" name="result_time" nullable="true" remarks="Time the result was produced." size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="10" name="result_uncertainty" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="11" name="valid_from" nullable="false" remarks="Start of the validity period (INSPIRE TM_Period)." size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="12" name="valid_to" nullable="false" remarks="End of the validity period (INSPIRE TM_Period)." size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="observation_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="observation_dedup_times_uq_idx" unique="true">
+            <column ascending="true" name="id_datastream"/>
+            <column ascending="true" name="phenomenon_time"/>
+            <column ascending="true" name="valid_from"/>
+            <column ascending="true" name="valid_to"/>
+         </index>
+         <index name="observation_guidkey_uq_idx" unique="true">
+            <column ascending="true" name="guidkey"/>
+         </index>
+         <index name="observation_id_laboratory_idx" unique="false">
+            <column ascending="true" name="id_laboratory"/>
+         </index>
+         <index name="observation_iddatastream_idx" unique="false">
+            <column ascending="true" name="id_datastream"/>
+         </index>
+         <index name="observation_phenomenontime_validtime_idx" unique="false">
+            <column ascending="true" name="phenomenon_time"/>
+            <column ascending="true" name="valid_to"/>
+         </index>
+         <index name="observation_resultcodelist_idx" unique="false">
+            <column ascending="true" name="result_codelist"/>
+         </index>
+         <index name="observation_threshold_operator_idx" unique="false">
+            <column ascending="true" name="threshold_operator"/>
+         </index>
+         <index name="observation_time_idx" unique="false">
+            <column ascending="true" name="phenomenon_time"/>
+            <column ascending="true" name="result_time"/>
+         </index>
+      </table>
+      <table name="organisation" remarks="Organisations that own INSPIRE datasets." schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_organisation" foreignKey="group_id_organisation_fkey" implied="false" onDeleteCascade="false" schema="public" table="group"/>
+            <child column="id_organisation" foreignKey="inspire_organisation_id_organisation_fkey" implied="false" onDeleteCascade="false" schema="public" table="inspire_organisation"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="2" name="is_active" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="3" name="created_at" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="4" name="updated_at" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="organisation_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="organisation_name_uq_idx" unique="true">
+            <column ascending="true" name="name"/>
+         </index>
+      </table>
+      <table name="other_horizon_notation_type" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="(gen_random_uuid())::text" digits="0" id="1" name="guidkey" nullable="false" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="diagnostic_horizon" nullable="false" remarks="Diagnostic horizon classification (reference to codelist)." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="other_horizon_notation_type_diagnostichorizon_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="horizon_notation" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="other_horizon_notation_type_horizonnotation_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="id_profile_element" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="other_horizon_notation_type_idprofileelement_fkey" implied="false" onDeleteCascade="false" schema="public" table="profile_element"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="is_original_classification" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="other_horizon_notation" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="other_horizon_notation_type_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="horizon_diagnostic_idx" unique="false">
+            <column ascending="true" name="horizon_notation"/>
+            <column ascending="true" name="diagnostic_horizon"/>
+         </index>
+         <index name="other_horizon_notation_type_guidkey_uq_idx" unique="true">
+            <column ascending="true" name="guidkey"/>
+         </index>
+         <index name="other_horizon_notation_type_idprofileelement_idx" unique="false">
+            <column ascending="true" name="id_profile_element"/>
+         </index>
+      </table>
+      <table name="other_soil_name_type" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="id_soil_profile" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="other_soil_name_type_idsoilprofile_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_profile"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="other_soil_name" nullable="true" remarks="" size="200" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="other_soil_name_class" nullable="false" remarks="" size="200" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="other_soil_name_type" nullable="false" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="5" name="is_original_classification" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="other_soil_name_type_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="other_soil_name_type_idsoilprofile_idx" unique="false">
+            <column ascending="true" name="id_soil_profile"/>
+         </index>
+         <index name="soilname_type_class_idx" unique="false">
+            <column ascending="true" name="other_soil_name_type"/>
+            <column ascending="true" name="other_soil_name_class"/>
+         </index>
+      </table>
+      <table name="particle_size_fraction_type" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="id_profile_element" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="particle_size_fraction_type_idprofileelement_fkey" implied="false" onDeleteCascade="false" schema="public" table="profile_element"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="2" name="fraction_content" nullable="false" remarks="Percentage of fraction content(0-1)." size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="3" name="particle_size_lower" nullable="false" remarks="Lower boundary of the particle size range (micron)." size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="4" name="particle_size_upper" nullable="false" remarks="Upper boundary of the particle size range (micron)." size="17" type="float8" typeCode="8"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="particle_size_fraction_type_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="particle_size_fraction_type_idprofileelement_idx" unique="false">
+            <column ascending="true" name="id_profile_element"/>
+         </index>
+         <index name="particle_size_range_idx" unique="false">
+            <column ascending="true" name="particle_size_lower"/>
+            <column ascending="true" name="particle_size_upper"/>
+         </index>
+      </table>
+      <table name="pedogenesis" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="id_profile_element" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="pedogenesis_idprofileelement_fkey" implied="false" onDeleteCascade="false" schema="public" table="profile_element"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="pedogenesis_layer_type" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="pedogenesis_layertype_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="layer_rock_type" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="pedogenesis_layerrocktype_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="layer_genesis_process" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="pedogenesis_layergenesisprocess_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="layer_genesis_environment" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="pedogenesis_layergenesisenvironment_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="layer_genesis_process_state" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="pedogenesis_layergenesisprocessstate_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="pedogenesis_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="pedogenesis_idprofileelement_idx" unique="false">
+            <column ascending="true" name="id_profile_element"/>
+         </index>
+      </table>
+      <table name="permission" remarks="Atomic permissions (read, export, ...)." schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_permission" foreignKey="inspire_permission_id_permission_fkey" implied="false" onDeleteCascade="false" schema="public" table="inspire_permission"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="code" nullable="false" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="description" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="permission_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="permission_code_uq_idx" unique="true">
+            <column ascending="true" name="code"/>
+         </index>
+      </table>
+      <table name="preparation_process" remarks="Sample preparation process (transport and storage)." schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_preparation_process" foreignKey="datastream_idpreparation_fkey" implied="false" onDeleteCascade="false" schema="public" table="datastream"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="id_storage" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="preparation_process_storage_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="id_transport" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="preparation_process_transport_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="definition" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="preparation_process_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="preparation_process_storage_id_idx" unique="false">
+            <column ascending="true" name="id_storage"/>
+         </index>
+         <index name="preparation_process_storage_transport_idx" unique="true">
+            <column ascending="true" name="id_storage"/>
+            <column ascending="true" name="id_transport"/>
+         </index>
+         <index name="preparation_process_transport_id_idx" unique="false">
+            <column ascending="true" name="id_transport"/>
+         </index>
+      </table>
+      <table name="process" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_process" foreignKey="datastream_idprocess_fkey" implied="false" onDeleteCascade="false" schema="public" table="datastream"/>
+            <child column="id_process" foreignKey="process_document_citation_idprocess_fkey" implied="false" onDeleteCascade="false" schema="public" table="process_document_citation"/>
+            <child column="id_process" foreignKey="process_parameter_idprocess_fkey" implied="false" onDeleteCascade="false" schema="public" table="process_parameter"/>
+            <child column="id_process" foreignKey="process_related_party_idprocess_fkey" implied="false" onDeleteCascade="false" schema="public" table="process_related_party"/>
+            <child column="id_process" foreignKey="soil_profile_idprocess_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_profile"/>
+         </column>
+         <column autoUpdated="false" defaultValue="(gen_random_uuid())::text" digits="0" id="1" name="guidkey" nullable="false" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="name" nullable="false" remarks="" size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="type" nullable="true" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="description" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="properties" nullable="true" remarks="" size="2147483647" type="jsonb" typeCode="1111"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="process_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="process_guidkey_uq_idx" unique="true">
+            <column ascending="true" name="guidkey"/>
+         </index>
+      </table>
+      <table name="process_document_citation" remarks="Many-to-many relation between process and document citation (INSPIRE documentation 0..*)." schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="id_document_citation" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="process_document_citation_iddocumentcitation_fkey" implied="false" onDeleteCascade="false" schema="public" table="document_citation"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="id_process" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="process_document_citation_idprocess_fkey" implied="false" onDeleteCascade="false" schema="public" table="process"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="process_documentcitation_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="process_document_citation_idprocess_iddocumentcitation_key" unique="true">
+            <column ascending="true" name="id_process"/>
+            <column ascending="true" name="id_document_citation"/>
+         </index>
+      </table>
+      <table name="process_parameter" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="id_process" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="process_parameter_idprocess_fkey" implied="false" onDeleteCascade="false" schema="public" table="process"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="name" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="process_parameter_name_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="description" nullable="false" remarks="" size="200" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="process_parameter_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="process_parameter_idprocess_idx" unique="false">
+            <column ascending="true" name="id_process"/>
+         </index>
+         <index name="process_parameter_name_idx" unique="false">
+            <column ascending="true" name="name"/>
+         </index>
+         <index name="process_parameter_process_name_uq_idx" unique="true">
+            <column ascending="true" name="id_process"/>
+            <column ascending="true" name="name"/>
+         </index>
+      </table>
+      <table name="process_related_party" remarks="Many-to-many relation between process and related party (INSPIRE responsibleParty 0..*)." schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="id_process" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="process_related_party_idprocess_fkey" implied="false" onDeleteCascade="false" schema="public" table="process"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="id_related_party" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="process_related_party_idrelatedparty_fkey" implied="false" onDeleteCascade="false" schema="public" table="related_party"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="process_relatedparty_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="process_related_party_idprocess_idrelatedparty_key" unique="true">
+            <column ascending="true" name="id_process"/>
+            <column ascending="true" name="id_related_party"/>
+         </index>
+      </table>
+      <table name="profile_element" remarks="Profile element: horizon or layer of a soil profile, with depth range." schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_profile_element" foreignKey="datastream_idprofileelement_fkey" implied="false" onDeleteCascade="false" schema="public" table="datastream"/>
+            <child column="id_profile_element" foreignKey="other_horizon_notation_type_idprofileelement_fkey" implied="false" onDeleteCascade="false" schema="public" table="other_horizon_notation_type"/>
+            <child column="id_profile_element" foreignKey="particle_size_fraction_type_idprofileelement_fkey" implied="false" onDeleteCascade="false" schema="public" table="particle_size_fraction_type"/>
+            <child column="id_profile_element" foreignKey="pedogenesis_idprofileelement_fkey" implied="false" onDeleteCascade="false" schema="public" table="pedogenesis"/>
+         </column>
+         <column autoUpdated="false" defaultValue="(gen_random_uuid())::text" digits="0" id="1" name="guidkey" nullable="false" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="id_inspire" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="profile_element_idinspire_fkey" implied="false" onDeleteCascade="false" schema="public" table="inspire"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="is_part_of" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_soil_profile" foreignKey="datastream_chain_profileelement_fkey" implied="false" onDeleteCascade="false" schema="public" table="datastream"/>
+            <parent column="id" foreignKey="profile_element_ispartof_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_profile"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="profile_element_type" nullable="false" remarks="Type of profile element: horizon or layer." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="profile_element_elementtype_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="layer_type" nullable="true" remarks="Type of layer; populated when profile_element_type = 'LAYER'." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="profile_element_layertype_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="id_fao_horizon_notation_type" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="profile_element_idfao_fkey" implied="false" onDeleteCascade="false" schema="public" table="fao_horizon_notation_type"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="7" name="depth_range_upper" nullable="false" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="8" name="depth_range_lower" nullable="false" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="9" name="begin_lifespan_version" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="10" name="end_lifespan_version" nullable="false" remarks="Date and time this version of the spatial object was superseded or retired; 31/12/9999 means open-ended." size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="profile_element_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="profile_element_guidkey_uq_idx" unique="true">
+            <column ascending="true" name="guidkey"/>
+         </index>
+         <index name="profile_element_id_ispartof_key" unique="true">
+            <column ascending="true" name="id"/>
+            <column ascending="true" name="is_part_of"/>
+         </index>
+         <index name="profile_element_idinspire_idx" unique="false">
+            <column ascending="true" name="id_inspire"/>
+         </index>
+         <index name="profile_element_ispartof_idx" unique="false">
+            <column ascending="true" name="is_part_of"/>
+         </index>
+         <index name="profile_element_layertype_idx" unique="false">
+            <column ascending="true" name="layer_type"/>
+         </index>
+      </table>
+      <table name="related_party" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_laboratory" foreignKey="observation_related_party_id_laboratory_fkey" implied="false" onDeleteCascade="false" schema="public" table="observation"/>
+            <child column="id_related_party" foreignKey="process_related_party_idrelatedparty_fkey" implied="false" onDeleteCascade="false" schema="public" table="process_related_party"/>
+            <child column="id_sampler" foreignKey="soil_plot_idsampler_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_plot"/>
+         </column>
+         <column autoUpdated="false" defaultValue="(gen_random_uuid())::text" digits="0" id="1" name="guidkey" nullable="false" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="individual_name" nullable="false" remarks="" size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="organisation_name" nullable="false" remarks="" size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="position_name" nullable="true" remarks="Position or workplace of the individual." size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="address" nullable="true" remarks="" size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="contact_instructions" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="electronic_mail_address" nullable="true" remarks="" size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="hours_of_service" nullable="true" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="telephone_facsimile" nullable="true" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="telephone_voice" nullable="true" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="website" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="role" nullable="true" remarks="Role of the related party (e.g. sampler, manager)." size="50" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="related_party_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="related_party_guidkey_uq_idx" unique="true">
+            <column ascending="true" name="guidkey"/>
+         </index>
+         <index name="related_party_individual_organisation_uq_idx" unique="true">
+            <column ascending="true" name="individual_name"/>
+            <column ascending="true" name="organisation_name"/>
+         </index>
+         <index name="related_party_individualname_idx" unique="false">
+            <column ascending="true" name="individual_name"/>
+         </index>
+         <index name="related_party_organizationname_idx" unique="false">
+            <column ascending="true" name="organisation_name"/>
+         </index>
+      </table>
+      <table name="sensor" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_sensor" foreignKey="datastream_idsensor_fkey" implied="false" onDeleteCascade="false" schema="public" table="datastream"/>
+         </column>
+         <column autoUpdated="false" defaultValue="(gen_random_uuid())::text" digits="0" id="1" name="guidkey" nullable="false" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="name" nullable="false" remarks="" size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="description" nullable="false" remarks="" size="200" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="sensor_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="sensor_guidkey_uq_idx" unique="true">
+            <column ascending="true" name="guidkey"/>
+         </index>
+         <index name="sensor_name_uq_idx" unique="true">
+            <column ascending="true" name="name"/>
+         </index>
+      </table>
+      <table name="soil_body" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_soil_body" foreignKey="derived_profile_presence_in_soil_body_idsoilbody_fkey" implied="false" onDeleteCascade="false" schema="public" table="derived_profile_presence_in_soil_body"/>
+            <child column="id_soil_body" foreignKey="is_based_on_soil_body_idsoilbody_fkey" implied="false" onDeleteCascade="false" schema="public" table="is_based_on_soil_body"/>
+            <child column="id_soil_body" foreignKey="soil_body_geom_idsoilbody_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_body_geom"/>
+            <child column="id_soil_body" foreignKey="soil_body_label_idsoilbody_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_body_label"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="id_inspire" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="soil_body_idinspire_fkey" implied="false" onDeleteCascade="false" schema="public" table="inspire"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="2" name="begin_lifespan_version" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="3" name="end_lifespan_version" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'idsource not set'::character varying" digits="0" id="4" name="id_source" nullable="false" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="(gen_random_uuid())::text" digits="0" id="5" name="guidkey" nullable="false" remarks="" size="50" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="soil_body_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="soil_body_beginlifespanversion_endlifespanversion_idx" unique="false">
+            <column ascending="true" name="begin_lifespan_version"/>
+            <column ascending="true" name="end_lifespan_version"/>
+         </index>
+         <index name="soil_body_guidkey_uq_idx" unique="true">
+            <column ascending="true" name="guidkey"/>
+         </index>
+         <index name="soil_body_idinspire_idsource_unq" unique="true">
+            <column ascending="true" name="id_inspire"/>
+            <column ascending="true" name="id_source"/>
+         </index>
+         <index name="soil_body_idinspire_idx" unique="false">
+            <column ascending="true" name="id_inspire"/>
+         </index>
+      </table>
+      <table name="soil_body_geom" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="id_soil_body" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="soil_body_geom_idsoilbody_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_body"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="geometry" nullable="false" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="soil_body_geom_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="soil_body_geom_geometry_gist_idx" unique="false">
+            <column ascending="true" name="geometry"/>
+         </index>
+         <index name="soil_body_geom_idsoilbody_idx" unique="false">
+            <column ascending="true" name="id_soil_body"/>
+         </index>
+      </table>
+      <table name="soil_body_label" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="id_soil_body" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="soil_body_label_idsoilbody_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_body"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="soil_body_label" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="soil_body_label_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="soil_body_label_idsoilbody_idx" unique="false">
+            <column ascending="true" name="id_soil_body"/>
+         </index>
+      </table>
+      <table name="soil_derived_object" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_soil_derived_object" foreignKey="datastream_idsoilderivedobject_fkey" implied="false" onDeleteCascade="false" schema="public" table="datastream"/>
+            <child column="id_soil_derived_object" foreignKey="is_based_on_observed_soil_profile_idsoilderivedobject_fkey" implied="false" onDeleteCascade="false" schema="public" table="is_based_on_observed_soil_profile"/>
+            <child column="id_soil_derived_object" foreignKey="is_based_on_soil_body_idsoilderivedobject_fkey" implied="false" onDeleteCascade="false" schema="public" table="is_based_on_soil_body"/>
+            <child column="id_base" foreignKey="is_based_on_soil_derived_object_idbase_fkey" implied="false" onDeleteCascade="false" schema="public" table="is_based_on_soil_derived_object"/>
+            <child column="id_related" foreignKey="is_based_on_soil_derived_object_idrelated_fkey" implied="false" onDeleteCascade="false" schema="public" table="is_based_on_soil_derived_object"/>
+         </column>
+         <column autoUpdated="false" defaultValue="(gen_random_uuid())::text" digits="0" id="1" name="guidkey" nullable="false" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="id_source" nullable="false" remarks="" size="30" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="id_inspire" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="soil_derived_object_idinspire_fkey" implied="false" onDeleteCascade="false" schema="public" table="inspire"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="geometry" nullable="false" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="soil_derived_object_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="soil_derived_object_geometry_gist_idx" unique="false">
+            <column ascending="true" name="geometry"/>
+         </index>
+         <index name="soil_derived_object_guidkey_uq_idx" unique="true">
+            <column ascending="true" name="guidkey"/>
+         </index>
+         <index name="soil_derived_object_idinspire_idx" unique="false">
+            <column ascending="true" name="id_inspire"/>
+         </index>
+      </table>
+      <table name="soil_investigation_purpose" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_purpose" foreignKey="soil_site_idpurpose_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_site"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="purpose" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="soil_investigation_purpose_soilinvestigationpurpose_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="2" name="valid_from" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="3" name="valid_to" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="purpose_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="purpose_soilinvestigationpurpose_idx" unique="false">
+            <column ascending="true" name="purpose"/>
+         </index>
+         <index name="purpose_soilinvestigationpurpose_validfrom_validto_uq_idx" unique="true">
+            <column ascending="true" name="purpose"/>
+            <column ascending="true" name="valid_from"/>
+            <column ascending="true" name="valid_to"/>
+         </index>
+      </table>
+      <table name="soil_plot" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_soil_plot" foreignKey="datastream_idsoilplot_fkey" implied="false" onDeleteCascade="false" schema="public" table="datastream"/>
+            <child column="location" foreignKey="soil_profile_location_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_profile"/>
+         </column>
+         <column autoUpdated="false" defaultValue="(gen_random_uuid())::text" digits="0" id="1" name="guidkey" nullable="false" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="id_inspire" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="soil_plot_idinspire_fkey" implied="false" onDeleteCascade="false" schema="public" table="inspire"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="id_sampler" nullable="true" remarks="Sampler who performed the sampling." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="soil_plot_idsampler_fkey" implied="false" onDeleteCascade="false" schema="public" table="related_party"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="located_on" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_soil_site" foreignKey="datastream_chain_soilplot_fkey" implied="false" onDeleteCascade="false" schema="public" table="datastream"/>
+            <parent column="id" foreignKey="soil_plot_locatedon_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_site"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="soil_plot_type" nullable="false" remarks="Type of plot the soil observation is made on (e.g. trial pit, borehole, sample)." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="soil_plot_soilplottype_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="soil_plot_location" nullable="false" remarks="Location of the plot (EPSG:3035)." size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="id_source" nullable="false" remarks="Source identifier of the plot, as provided at import time." size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="acquisition_type" nullable="true" remarks="Acquisition method of the coordinates (e.g. GPS)." size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="location_name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="10" name="begin_lifespan_version" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="11" name="end_lifespan_version" nullable="false" remarks="Date and time this version of the spatial object was superseded or retired; 31/12/9999 means open-ended." size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="soil_plot_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="soil_plot_beginlifespanversion_endlifespanversion_idx" unique="false">
+            <column ascending="true" name="begin_lifespan_version"/>
+            <column ascending="true" name="end_lifespan_version"/>
+         </index>
+         <index name="soil_plot_guidkey_uq_idx" unique="true">
+            <column ascending="true" name="guidkey"/>
+         </index>
+         <index name="soil_plot_id_locatedon_key" unique="true">
+            <column ascending="true" name="id"/>
+            <column ascending="true" name="located_on"/>
+         </index>
+         <index name="soil_plot_idinspire_idx" unique="false">
+            <column ascending="true" name="id_inspire"/>
+         </index>
+         <index name="soil_plot_idsampler_idx" unique="false">
+            <column ascending="true" name="id_sampler"/>
+         </index>
+         <index name="soil_plot_idsource_idinspire_uq_idx" unique="true">
+            <column ascending="true" name="id_source"/>
+            <column ascending="true" name="id_inspire"/>
+         </index>
+         <index name="soil_plot_locatedon_idx" unique="false">
+            <column ascending="true" name="located_on"/>
+         </index>
+         <index name="soil_plot_soilplotlocation_gist_idx" unique="false">
+            <column ascending="true" name="soil_plot_location"/>
+         </index>
+      </table>
+      <table name="soil_profile" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_soil_profile" foreignKey="datastream_idsoilprofile_fkey" implied="false" onDeleteCascade="false" schema="public" table="datastream"/>
+            <child column="id_soil_profile" foreignKey="derived_profile_presence_in_soil_body_idsoilprofile_fkey" implied="false" onDeleteCascade="false" schema="public" table="derived_profile_presence_in_soil_body"/>
+            <child column="id_soil_profile" foreignKey="is_based_on_observed_soil_profile_idsoilprofile_fkey" implied="false" onDeleteCascade="false" schema="public" table="is_based_on_observed_soil_profile"/>
+            <child column="id_base" foreignKey="is_derived_from_idbase_fkey" implied="false" onDeleteCascade="false" schema="public" table="is_derived_from"/>
+            <child column="id_related" foreignKey="is_derived_from_idrelated_fkey" implied="false" onDeleteCascade="false" schema="public" table="is_derived_from"/>
+            <child column="id_soil_profile" foreignKey="other_soil_name_type_idsoilprofile_fkey" implied="false" onDeleteCascade="false" schema="public" table="other_soil_name_type"/>
+            <child column="is_part_of" foreignKey="profile_element_ispartof_fkey" implied="false" onDeleteCascade="false" schema="public" table="profile_element"/>
+            <child column="id_soil_profile" foreignKey="soil_sub_sample_idsoilprofile_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_sub_sample"/>
+            <child column="id_soil_profile" foreignKey="wrb_qualifier_group_profile_idsoilprofile_fkey" implied="false" onDeleteCascade="false" schema="public" table="wrb_qualifier_group_profile"/>
+         </column>
+         <column autoUpdated="false" defaultValue="(gen_random_uuid())::text" digits="0" id="1" name="guidkey" nullable="false" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="(gen_random_uuid())::text" digits="0" id="2" name="local_identifier" nullable="false" remarks="" size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="id_inspire" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="soil_profile_idinspire_fkey" implied="false" onDeleteCascade="false" schema="public" table="inspire"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="location" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_soil_plot" foreignKey="datastream_chain_soilprofile_fkey" implied="false" onDeleteCascade="false" schema="public" table="datastream"/>
+            <parent column="id" foreignKey="soil_profile_location_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_plot"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="wrb_soil_group" nullable="true" remarks="WRB reference soil group (reference to codelist)." size="19" type="int8" typeCode="-5">
+            <parent column="id" foreignKey="soil_profile_codelist_id_fk" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="id_equipment" nullable="true" remarks="Equipment used for the sampling." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="soil_profile_idequipment_fkey" implied="false" onDeleteCascade="false" schema="public" table="equipments"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="id_process" nullable="true" remarks="Sampling procedure." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="soil_profile_idprocess_fkey" implied="false" onDeleteCascade="false" schema="public" table="process"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="humus_type" nullable="true" remarks="Humus type (EEA, reference to codelist)." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="soil_profile_humustype_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="parent_material" nullable="true" remarks="Parent material (EEA, reference to codelist)." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="soil_profile_parentmaterial_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="number_subsample" nullable="true" remarks="Number of subsamples taken from the profile." size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="11" name="sampling_area" nullable="true" remarks="Size of the sampling area (square metres)." size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="sampling_area_shape" nullable="true" remarks="Shape of the sampling area (e.g. X, W)." size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="13" name="subsampling_area" nullable="true" remarks="Area of each subsample." size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="is_original_classification" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="valid_from" nullable="false" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="valid_to" nullable="false" remarks="End of the validity period; 31/12/9999 means open-ended." size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="17" name="begin_lifespan_version" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="18" name="end_lifespan_version" nullable="false" remarks="Date and time this version of the spatial object was superseded or retired; 31/12/9999 means open-ended." size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="soil_profile_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="soil_profile_guidkey_uq_idx" unique="true">
+            <column ascending="true" name="guidkey"/>
+         </index>
+         <index name="soil_profile_humus_type_idx" unique="false">
+            <column ascending="true" name="humus_type"/>
+         </index>
+         <index name="soil_profile_id_location_key" unique="true">
+            <column ascending="true" name="id"/>
+            <column ascending="true" name="location"/>
+         </index>
+         <index name="soil_profile_idequipment_idx" unique="false">
+            <column ascending="true" name="id_equipment"/>
+         </index>
+         <index name="soil_profile_idinspire_idx" unique="false">
+            <column ascending="true" name="id_inspire"/>
+         </index>
+         <index name="soil_profile_idprocess_idx" unique="false">
+            <column ascending="true" name="id_process"/>
+         </index>
+         <index name="soil_profile_localidentifier_idx" unique="false">
+            <column ascending="true" name="local_identifier"/>
+         </index>
+         <index name="soil_profile_location_idx" unique="false">
+            <column ascending="true" name="location"/>
+         </index>
+         <index name="soil_profile_parent_material_idx" unique="false">
+            <column ascending="true" name="parent_material"/>
+         </index>
+         <index name="soil_profile_wrbsoilgroup_index" unique="false">
+            <column ascending="true" name="wrb_soil_group"/>
+         </index>
+         <checkConstraint constraint="(((is_original_classification = true) AND (location IS NOT NULL)) OR (is_original_classification = false))" name="chk_location_when_isoriginalclassification"/>
+      </table>
+      <table name="soil_site" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_soil_site" foreignKey="contaminated_site_idsoilsite_fkey" implied="false" onDeleteCascade="false" schema="public" table="contaminated_site"/>
+            <child column="id_soil_site" foreignKey="datastream_idsoilsite_fkey" implied="false" onDeleteCascade="false" schema="public" table="datastream"/>
+            <child column="id_soil_site" foreignKey="disturbance_soil_site_idsoilsite_fkey" implied="false" onDeleteCascade="false" schema="public" table="disturbance_soil_site"/>
+            <child column="id_soil_site" foreignKey="existing_land_use_object_idsoilsite_fkey" implied="false" onDeleteCascade="false" schema="public" table="existing_land_use_object"/>
+            <child column="id_soil_site" foreignKey="experiment_soil_site_idsoilsite_fkey" implied="false" onDeleteCascade="false" schema="public" table="experiment_soil_site"/>
+            <child column="id_soil_site" foreignKey="land_cover_unit_idsoilsite_fkey" implied="false" onDeleteCascade="false" schema="public" table="land_cover_unit"/>
+            <child column="id_soil_site" foreignKey="land_management_idsoilsite_fkey" implied="false" onDeleteCascade="false" schema="public" table="land_management"/>
+            <child column="located_on" foreignKey="soil_plot_locatedon_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_plot"/>
+         </column>
+         <column autoUpdated="false" defaultValue="(gen_random_uuid())::text" digits="0" id="1" name="guidkey" nullable="false" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="id_source" nullable="false" remarks="Source identifier of the site (derived from the soil plot); unique together with id_inspire." size="30" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="id_inspire" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="soil_site_idinspire_fkey" implied="false" onDeleteCascade="false" schema="public" table="inspire"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="id_purpose" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="soil_site_idpurpose_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_investigation_purpose"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="status" nullable="true" remarks="Status of the site (EEA, reference to codelist)." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="soil_site_status_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="biographic_region" nullable="true" remarks="Biogeographical region (EEA, reference to codelist)." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="soil_site_biographicregion_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="eunis" nullable="true" remarks="EUNIS habitat type (EEA, reference to codelist)." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="soil_site_eunis_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="maes" nullable="true" remarks="MAES ecosystem type (EEA, reference to codelist)." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="soil_site_maes_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="site_code_european" nullable="true" remarks="European site code (EEA, reference to codelist)." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="soil_site_sitecodeeuropean_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="site_code_national" nullable="true" remarks="National site code (EEA, reference to codelist)." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="soil_site_sitecodenational_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="geometry" nullable="false" remarks="Geometry of the site (EPSG:3035)." size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="site_name" nullable="true" remarks="Name of the site (EEA)." size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="13" name="is_derived_from_plot" nullable="false" remarks="True when the site geometry was derived from the soil plot (fictitious site)." size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="14" name="elevation" nullable="true" remarks="Elevation in metres (EEA)." size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="15" name="orientation" nullable="true" remarks="Orientation in degrees (EEA); values 0-360." size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="16" name="slope" nullable="true" remarks="Slope in degrees (EEA); values 0-360." size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="monitoring_network" nullable="true" remarks="Monitoring network the site belongs to (EEA)." size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="CURRENT_DATE" digits="0" id="18" name="valid_from" nullable="false" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="'9999-12-31'::date" digits="0" id="19" name="valid_to" nullable="false" remarks="End of the validity period; 31/12/9999 means open-ended." size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="20" name="begin_lifespan_version" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="21" name="end_lifespan_version" nullable="false" remarks="Date and time this version of the spatial object was superseded or retired; 31/12/9999 means open-ended." size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="soil_site_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="soil_site_biographic_region_idx" unique="false">
+            <column ascending="true" name="biographic_region"/>
+         </index>
+         <index name="soil_site_eunis_idx" unique="false">
+            <column ascending="true" name="eunis"/>
+         </index>
+         <index name="soil_site_geometry_gist_idx" unique="false">
+            <column ascending="true" name="geometry"/>
+         </index>
+         <index name="soil_site_guidkey_uq_idx" unique="true">
+            <column ascending="true" name="guidkey"/>
+         </index>
+         <index name="soil_site_idinspire_idsource_uq_idx" unique="true">
+            <column ascending="true" name="id_inspire"/>
+            <column ascending="true" name="id_source"/>
+         </index>
+         <index name="soil_site_idinspire_idx" unique="false">
+            <column ascending="true" name="id_inspire"/>
+         </index>
+         <index name="soil_site_idpurpose_idx" unique="false">
+            <column ascending="true" name="id_purpose"/>
+         </index>
+         <index name="soil_site_maes_idx" unique="false">
+            <column ascending="true" name="maes"/>
+         </index>
+         <index name="soil_site_site_code_european_idx" unique="false">
+            <column ascending="true" name="site_code_european"/>
+         </index>
+         <index name="soil_site_site_code_national_idx" unique="false">
+            <column ascending="true" name="site_code_national"/>
+         </index>
+         <index name="soil_site_status_idx" unique="false">
+            <column ascending="true" name="status"/>
+         </index>
+         <checkConstraint constraint="((orientation &gt;= (0)::double precision) AND (orientation &lt;= (360)::double precision))" name="soil_site_orientation_check"/>
+         <checkConstraint constraint="((slope &gt;= (0)::double precision) AND (slope &lt;= (360)::double precision))" name="soil_site_slope_check"/>
+      </table>
+      <table name="soil_sub_sample" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="id_soil_profile" nullable="false" remarks="Reference to the soil profile the sub-sample belongs to." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="soil_sub_sample_idsoilprofile_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_profile"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="subsample_location" nullable="true" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="soil_sub_sample_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="soil_sub_sample_subsamplelocation_gist_idx" unique="false">
+            <column ascending="true" name="subsample_location"/>
+         </index>
+         <index name="soilsubsampling_idsampling_idx" unique="false">
+            <column ascending="true" name="id_soil_profile"/>
+         </index>
+         <index name="soilsubsampling_subsamplinglocation_idx" unique="false">
+            <column ascending="true" name="subsample_location"/>
+         </index>
+      </table>
+      <table name="soil_theme_coverage" remarks="INSPIRE SoilThemeCoverage: raster coverage of a soil theme." schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_soil_theme_coverage" foreignKey="soil_theme_descriptive_coverage_idsoilthemecoverage_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_theme_descriptive_coverage"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="id_inspire" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="soil_theme_coverage_idinspire_fkey" implied="false" onDeleteCascade="false" schema="public" table="inspire"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="soil_theme_parameter" nullable="true" remarks="Theme parameter of the coverage (reference to observable_property)." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="soil_theme_coverage_idobservableproperty_fkey" implied="false" onDeleteCascade="false" schema="public" table="observable_property"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="guid_master_catalog" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="nomenclature" nullable="false" remarks="Codelist collection used by the coverage." size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="domain_extent" nullable="false" remarks="Spatial extent as a LINESTRING representing the diagonal of the bounding box: the other two corners are (x1, y2) and (x2, y1)." size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="6" name="depth_range_upper" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="7" name="depth_range_lower" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="uri" nullable="false" remarks="URI of the raster file." size="256" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="metadata" nullable="true" remarks="" size="2147483647" type="jsonb" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="10" name="valid_from" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="11" name="valid_to" nullable="false" remarks="End of the validity period; 31/12/9999 means open-ended." size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="12" name="begin_lifespan_version" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="13" name="end_lifespan_version" nullable="false" remarks="Date and time this version of the spatial object was superseded or retired; 31/12/9999 means open-ended." size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="soil_theme_coverage_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="soil_theme_coverage_extent_gist_idx" unique="false">
+            <column ascending="true" name="domain_extent"/>
+         </index>
+         <index name="soil_theme_coverage_idinspire_idx" unique="false">
+            <column ascending="true" name="id_inspire"/>
+         </index>
+      </table>
+      <table name="soil_theme_descriptive_coverage" remarks="INSPIRE SoilThemeDescriptiveCoverage: descriptive parameters of a coverage (e.g. resolution)." schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="id_soil_theme_coverage" nullable="false" remarks="Reference to the parent soil theme coverage." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="soil_theme_descriptive_coverage_idsoilthemecoverage_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_theme_coverage"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="id_uom" nullable="true" remarks="Unit of measure of the parameter (e.g. pixel, metre, reference to unit_of_measure)." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="soil_theme_descriptive_coverage_iduom_fkey" implied="false" onDeleteCascade="false" schema="public" table="unit_of_measure"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="domain_extent" nullable="true" remarks="Geometric extent; if not provided it is derived from the parent coverage." size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="soil_theme_descriptive_parameter_name" nullable="false" remarks="Name of the descriptive parameter (e.g. resolution, scale)." size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="5" name="begin_lifespan_version" nullable="false" remarks="Start of the version validity." size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="6" name="end_lifespan_version" nullable="false" remarks="End of the version validity." size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="soilthemedescriptivecoverage_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="soil_theme_descriptive_coverage_domain_extent_gist_idx" unique="false">
+            <column ascending="true" name="domain_extent"/>
+         </index>
+         <index name="soil_theme_descriptive_coverage_id_soil_theme_coverage_idx" unique="false">
+            <column ascending="true" name="id_soil_theme_coverage"/>
+         </index>
+         <index name="soil_theme_descriptive_coverage_id_uom_idx" unique="false">
+            <column ascending="true" name="id_uom"/>
+         </index>
+      </table>
+      <table name="unit_of_measure" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_uom" foreignKey="observable_property_iduom_fkey" implied="false" onDeleteCascade="false" schema="public" table="observable_property"/>
+            <child column="id_uom" foreignKey="soil_theme_descriptive_coverage_iduom_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_theme_descriptive_coverage"/>
+         </column>
+         <column autoUpdated="false" defaultValue="(gen_random_uuid())::text" digits="0" id="1" name="guidkey" nullable="false" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="uom_name" nullable="false" remarks="" size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="uom_symbol" nullable="false" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="measure_type" nullable="false" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="name_standard_unit" nullable="false" remarks="" size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="6" name="offset_to_standard_unit" nullable="false" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="7" name="scale_to_standard_unit" nullable="false" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="formula" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="unitofmeasure_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="unit_of_measure_guidkey_uq_idx" unique="true">
+            <column ascending="true" name="guidkey"/>
+         </index>
+         <index name="unit_of_measure_uom_name_uq_idx" unique="true">
+            <column ascending="true" name="uom_name"/>
+         </index>
+         <index name="uq_unit_of_measure_uomsymbol" unique="true">
+            <column ascending="true" name="uom_symbol"/>
+         </index>
+      </table>
+      <table name="wrb_qualifier_group_profile" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="id_soil_profile" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="wrb_qualifier_group_profile_idsoilprofile_fkey" implied="false" onDeleteCascade="false" schema="public" table="soil_profile"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="id_wrg_type" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="wrb_qualifier_group_profile_idwrgtype_fkey" implied="false" onDeleteCascade="false" schema="public" table="wrb_qualifier_group_type"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="qualifier_position" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="wrb_qualifier_group_profile_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="profile_qualifier_idx" unique="false">
+            <column ascending="true" name="id_soil_profile"/>
+            <column ascending="true" name="qualifier_position"/>
+         </index>
+         <index name="wrb_qualifier_group_profile_idsoilprofile_idx" unique="false">
+            <column ascending="true" name="id_soil_profile"/>
+         </index>
+         <index name="wrb_qualifier_group_profile_idwrgtype_idx" unique="false">
+            <column ascending="true" name="id_wrg_type"/>
+         </index>
+         <index name="wrb_qualifier_group_profile_profile_wrg_pos_uq_idx" unique="true">
+            <column ascending="true" name="id_soil_profile"/>
+            <column ascending="true" name="id_wrg_type"/>
+            <column ascending="true" name="qualifier_position"/>
+         </index>
+      </table>
+      <table name="wrb_qualifier_group_type" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="id_wrg_type" foreignKey="wrb_qualifier_group_profile_idwrgtype_fkey" implied="false" onDeleteCascade="false" schema="public" table="wrb_qualifier_group_profile"/>
+         </column>
+         <column autoUpdated="false" defaultValue="(gen_random_uuid())::text" digits="0" id="1" name="guidkey" nullable="false" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="qualifier_place" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="wrb_qualifier_group_type_qualifierplace_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="wrb_qualifier" nullable="false" remarks="WRB qualifier." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="wrb_qualifier_group_type_wrbqualifier_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="wrb_specifier_1" nullable="true" remarks="WRB specifier 1." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="wrb_qualifier_group_type_wrbspecifier1_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="wrb_specifier_2" nullable="true" remarks="WRB specifier 2." size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="wrb_qualifier_group_type_wrbspecifier2_fkey" implied="false" onDeleteCascade="false" schema="public" table="codelist"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="wrb_version" nullable="false" remarks="" size="10" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="wrb_qualifier_group_type_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="wrb_qualifier_group_type_guidkey_uq_idx" unique="true">
+            <column ascending="true" name="guidkey"/>
+         </index>
+         <index name="wrb_qualifier_group_type_qualifier_place_idx" unique="false">
+            <column ascending="true" name="qualifier_place"/>
+         </index>
+         <index name="wrb_qualifier_group_type_wrb_qualifier_idx" unique="false">
+            <column ascending="true" name="wrb_qualifier"/>
+         </index>
+      </table>
+   </tables>
+</database>
