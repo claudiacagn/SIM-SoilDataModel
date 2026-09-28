@@ -2,10 +2,9 @@
 
 **INSPIRE-based soil data model for SIM O3 with extensions for soil monitoring.**
 
-<!-- Add the Zenodo DOI badge here after the first release -->
-<!-- Add organisation / project: "Developed by ... as part of ..." -->
+Developed by Lorenzo Giunchi, Marco Cauli, Francesco Minutella, Andrea Abbiati, Claudia Cagnarini
 
-This repository contains the soil data model of **SIM O3** (O3 in the rest of this document), a relational data model for storing and exchanging soil data. It is built on the INSPIRE Soil application schema and extended with the information needed for soil monitoring. It is implemented in PostgreSQL with PostGIS.
+This repository contains the soil data model of **SIM O3**, a relational data model for storing and exchanging soil data. It is built on the INSPIRE Soil application schema and extended with the information needed for soil monitoring. It is implemented in PostgreSQL with PostGIS.
 
 > **Status: work in progress.** The schema documentation is available; the SQL schema, license and citation will be added before the first release.
 
@@ -15,9 +14,9 @@ O3 starts from the **EJP SOIL GeoPackage**, an implementation of the **INSPIRE S
 
 These models describe where soil was observed and how soil properties were measured, but they do not record much of the context needed to interpret and compare monitoring results over time. O3 keeps the INSPIRE core unchanged and adds this context as new tables and attributes.
 
-## What O3 adds
+## What SIM O3 adds
 
-| Area | INSPIRE Soil | EEA model | O3 |
+| Area | INSPIRE Soil | EEA model | SIM O3 |
 |---|---|---|---|
 | Land cover, land use and soil management | Separate INSPIRE themes, not linked to soil sites | Site classification only (MAES, EUNIS, protection status) | Land use (HILUCS), land cover with mosaics and vegetation type, soil management attributes per site and date |
 | Sampling and sampler | Plot type and depth ranges | Plot or sample size, sampling depth | Sampler, equipment, sampling procedure, sampling area size and shape, sub-samples and their locations |
@@ -57,6 +56,10 @@ Installation instructions will be added together with the SQL schema.
 ## License
 
 A license has not been chosen yet. Until one is added, all rights are reserved.
+
+## Funding
+
+This work was carried out within **SIM – Sistema Avanzato ed Integrato di Monitoraggio e Previsione** (Advanced and Integrated Monitoring and Forecasting System) of the Italian Ministry of Environment and Energy Security (MASE), under the National Recovery and Resilience Plan (PNRR), Mission 2, Component 4, Investment 1.1 "Realizzazione di un sistema avanzato ed integrato di monitoraggio e previsione", funded by the European Union – NextGenerationEU.
 
 ## Feedback
 
