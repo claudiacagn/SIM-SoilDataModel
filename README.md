@@ -2,11 +2,11 @@
 
 **INSPIRE-based soil data model for SIM O3 with extensions for soil monitoring.**
 
-Developed by Lorenzo Giunchi, Marco Cauli, Francesco Minutella, Andrea Abbiati, Silvano Pecora, Claudia Cagnarini
+Developed by Francesco Minutella, Marco Cauli, Lorenzo Giunchi, Angelica De Ros, Matteo Petito, Andrea Abbiati, Silvano Pecora, Giovanni L'Abate, Claudia Cagnarini
 
 This repository contains the soil data model of **SIM O3**, a relational data model for storing and exchanging soil data. It is built on the INSPIRE Soil application schema and extended with the information needed for soil monitoring. It is implemented in PostgreSQL with PostGIS.
 
-> **Status: work in progress.** The schema documentation is available; the SQL schema, license and citation will be added before the first release.
+> **Status: work in progress.** The schema documentation and the SQL schema are available; license and citation will be added before the first release.
 
 ## Background
 
@@ -49,9 +49,8 @@ Geometries are stored in ETRS89-LAEA (EPSG:3035).
 
 ## Getting started
 
-Requirements: PostgreSQL with the PostGIS extension, installed in a separate schema (not in `public`).
+Requirements: PostgreSQL 15.19 with the PostGIS extension, installed in a separate schema (not in `public`).
 
-Installation instructions will be added together with the SQL schema.
 
 ## License
 
